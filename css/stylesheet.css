@@ -3,7 +3,11 @@ Slate Theme for GitHub Pages
 by Jason Costello, @jsncostello
 *******************************************************************************/
 
-@import url(pygment_trac.css);
+/*******************************************************************************
+adaptiert für das Projekt NIKI 4.0
+(andere Farbwerte, ...)
+*******************************************************************************/
+
 
 /*******************************************************************************
 MeyerWeb Reset
@@ -28,6 +32,7 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 
  li{
   margin: 0;
@@ -62,6 +67,7 @@ body {
   background: #f2f2f2;
   font-size: 16px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
+  font-color:#404040;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -69,7 +75,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
-  color:#222222;
+  color:#404040;
   font-family: 'Consolas', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
@@ -276,7 +282,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 1024px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -289,7 +295,7 @@ Full-Width Styles
   z-index: 10;
   padding: 10px 50px 10px 10px;
   color: #fff;
-  background: url('../images/blacktocat.png') #007349 no-repeat 95% 50%;
+  background: url('../images/blacktocat.png') #007749 no-repeat 95% 50%;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
@@ -297,7 +303,7 @@ Full-Width Styles
 }
 
 #header_wrap {
-  background: #007349;
+  background: #007749;
  /* background: -moz-linear-gradient(top, #373737, #212121);
   background: -webkit-linear-gradient(top, #373737, #212121);
   background: -ms-linear-gradient(top, #373737, #212121);
@@ -377,7 +383,7 @@ padding: 0px 70px 0px 0px;
 .menu_link{
  padding: 10px 10px 10px 10px;
   color: #fff;
-  background: #2E4F8F;
+  background: #AF2F00;
   font-weight: 700;
   box-shadow: 0 0 10px rgba(0,0,0,.5);
   border-bottom-left-radius: 2px;
@@ -428,7 +434,7 @@ padding: 0px 70px 0px 0px;
 }
 
 #footer_wrap {
-  background: #2E4F8F;
+  background: #AF2F00;
 }
 
 
