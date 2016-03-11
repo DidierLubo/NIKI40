@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Nicht-disruptives Kit für die Evaluation von Industrie 4.0 (NIKI 4.0)">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">
+    <title>NIKI 4.0 - Idee</title>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner"> <a id="project_logo" href="http://www.niki-40.de"> <img
+            id="logo" src="images/niki-logo.png"> </a>
+        <h2 id="project_tagline">Nicht-disruptives Kit für die Evaluation<br> von Industrie 4.0 (NIKI 4.0)</h2>
+        <section id="menu" class="outer">
+			<a class="menu_link" href="index.html">Home</a>
+			<a class="menu_link" href="idee.html">Idee</a>
+			<a class="menu_link" href="projekt.html">Projekt</a>
+			<a class="menu_link" href="industriepartner.html">Industriepartner</a>
+        </section>
+      </header>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1> <a id="niki-40" class="anchor" href="#niki-40" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Projektidee</h1>
+        <p>
+		<figure>
+			<img alt="Skizze als Projektübersicht" src="./images/skizze.png" />
+			<figcaption>Darstellung der Projektziele und Bestandteile (Quelle: Hahn Schickard Gesellschaft, 2016)</figcaption>
+		</figure>
+		</p>
+		<p>NIKI 4.0 vereinigt die Bereiche Datenerhebung, Kommunikation und Datenanalyse sowie Visualisierung in einem für KMUs einfach anwendbaren Gesamtsystem. Wie die Abbildung veranschaulicht setzt es sich hierfür aus den im Folgenden noch genauer erläuterten Bausteinen nicht-disruptive Informationsknoten, Datengateway und Visualisierung zusammen.</p>
+		<h2>Nicht-disruptive Informationsknoten</h2>
+		<p>
+		Die nicht-disruptiven Informationsknoten zeichnen sich vor allem dadurch aus, dass sie ohne aufwändige Umbau- oder Erweiterungsmaßnahmen an der Maschine installiert werden können. In seiner initialen Version sieht NIKI 4.0 mit datenerfassenden Informationskopplern („Sniffern“) und Ad-Hoc-Sensorik unter anderem zur Energiemessung zwei unterschiedliche Typen von Informations-knoten vor, die den für Industrie 4.0 besonders wichtigen Bereich der Effizienzsteigerung abdecken. In seiner Systemarchitektur sieht NIKI 4.0 eine zusätzliche offene Schnittstelle für Erweiterung mit weiteren Typen von Informationsknoten vor. Die Sensorknoten verfügen neben der eigentlichen Sensorik über eine Prozessorplattform, welche eine lokale erste Aufbereitung der Daten übernimmt und damit die den Kommunikationsaufwand reduziert und den Analyseaufwand dezentralisiert.<br/>
+		Bei den Informationskopplern handelt es sich um Zwischenstecker zum Abgreifen („Sniffen“) des Informationsflusses aus Feldbussystemen, die für ausgewählte Bussysteme (u.a. PROFIBUS) beispiel-haft realisiert werden. In NIKI 4.0 wollen wir uns auf den PROFIBUS als eines der weit verbreitetsten Protokolle fokussieren. Das Konzept soll jedoch so ausgelegt sein, dass sich ähnliche „Sniffer“ auch für andere Protokolle wie z.B. IO-Link realisieren lassen. Die Informationskoppler erlauben die Erfassung der über den Feldbus ausgetauschten Informationen und stellen auch eine nachrüstbare Schnittstelle in den Produktionsanlagen dar. Informationskoppler und Ad-Hoc-Sensorik haben gemeinsam, dass die gesammelten Informationen über ein einheitliches Protokoll und eine Funkschnittstelle an das Gateway übertragen werden und eine eigene Energieversorgung (in Form einer Batterie) besitzen, um sowohl für Energie- als auch Datenübertragung auf den Einsatz störender Kabel zu verzichten. Da die übertragenen Daten nicht zur direkten Maschinensteuerung eingesetzt werden, ist eine Echtzeitfähigkeit des Übertragungsprotokolls und der Übertragungstechnik nicht erforderlich. Der Schwerpunkt liegt viel mehr darauf energie-effizient zu übertragen. Zusätzlich soll der Funk vorhandene Techniken nicht stören oder beeinflussen, gleichzeitig aber auch möglichst wenig störanfällig gegenüber anderer Funktechnik in der Produktion sein.</p>
+		<h2>Gateway</h2>
+		<p>Das Gateway stellt das Kernelement des Datenaustauschs dar. Zum einen stellt es die Schnittstelle zu den räumlich verteilten und drahtlos kommunizierenden Informationsknoten bereit. Es sammelt und speichert die Daten und übersetzt diese in OPC-UA-kompatible Datenmodelle. Für die Sammlung der Daten ist es wichtig die Informationen der Sensoren in ein einheitliches Datenformat mit vordefinierter Semantik zu übertragen. Bezüglich der Beschreibung der Semantik soll auf ein einheitliches Informationsmodell zurückgegriffen werden. Hierbei sollen Ansätze aus dem Informationsmodell von OPC-UA aber auch Ergebnisse aus dem Forschungsprojekt <a href="http://www.sensidl.de" target="_blank">SensIDL</a> von HS-VS und FZI angewendet werden. Das Gateway führt zudem eine Aufbereitung und Analyse der Daten als eigenständige Datenverarbeitung durch. Hierdurch kann bereits eine erste Interpretationshilfe bzw. eine automatische Interpretation (Auffälligkeiten, …) erstellt werden, was zusätzlich als Vorverarbeitung für die spätere Visualisierung auf den mobilen Endgeräten hilft. Die Daten können neben der lokalen Speicherung auch in ein zentralisiertes Backend übertragen werden. Das Gateway dient auch als Schnittstelle zur Visualisierung, so dass mobile Endgeräte über eine unmittelbare drahtlose Anbindung auf die im Gateway oder im Backend gespeicherten Daten zugreifen können. Hierzu wird eine einheitliche Schnittstelle vom Gateway bereitgestellt, die es Endgeräten erlaubt über bereits integrierte Kommunikationsinterfaces (z. B. Ethernet für Desktopsysteme, WLAN für mobile Endgeräte) die gewünschten Daten abzufragen.</p>
+		<h2>Datenvisualisierung</h2>
+		<p>Die effiziente und effektive Nutzung von Daten hängt wesentlich von einer sinnvollen und durchdachten Darstellung ab. Die Verschmelzung von Daten und Realität mittels Augmented Reality erleichtert dem Nutzer in der unmittelbaren Umgebung der Maschine die Zuordnung von digitalen Daten und physischen Maschinen. Hierzu ist eine Erkennung der Maschine bspw. mittels Bildauswertung oder Tags (QR-Codes, NFC) notwendig. Eine geeignete Visualisierung unterstützt die Mitar¬beiter in unterschiedlichen Anwendungsfällen. Ein Beispiel ist die Verwendung der Daten, um Prog¬nosen zum zukünftigen Zustand der Maschine zu erstellen und durch gezielte vorbeugende Wartung ("Predictive Maintenance") ungeplanten Ausfällen vorzubeugen. Ein anderes Beispiel ist eine Visualisierung der Prozessaufgaben einer Maschine zur lokalen Verbesserung der Aufgabenausführung.<br/>
+		Die Daten sind auch für Mitarbeiter außerhalb der unmittelbaren Umgebung der Maschinen interessant, auch hierzu ist eine geeignete Darstellungs- und Interaktionsform zu schaffen. Ein Anwendungsfall ist eine Führungskraft, bspw. ein Betriebsleiter, der aktuelle Produktions- und Maschinendaten analysieren und Einsätze planen möchte.</p>
+		</p>
+      </section>
+    </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner"> <a id="forkme_banner" href="https://github.com/fzi-forschungszentrum-informatik/NIKI40/tree/master" target="_blank">View
+          on GitHub</a>
+        <p class="copyright">
+          Published with <a href="https://pages.github.com" target="_blank">GitHub Pages</a><br>
+          <a href="impressum.html">Impressum</a></p>
+      </footer>
+    </div>
+
+  </body>
+</html>

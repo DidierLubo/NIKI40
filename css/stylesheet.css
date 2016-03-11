@@ -42,6 +42,16 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
+figure{
+	text-align:center;
+}
+
+figcaption{
+	font-size: 12px;
+	font-style: italic;
+}
+
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
