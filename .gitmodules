@@ -1,0 +1,4 @@
+[submodule "sensors/virtual_sensor"]
+	path = sensors/virtual_sensor
+	url = https://mw1135@redmine.hahn-schickard.de/application-engineering/niki4-0-no/virtual_sensor.git
+	branch = niki
