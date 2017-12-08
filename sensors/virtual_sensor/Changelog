@@ -1,0 +1,13 @@
+
+version 1.0 (Dec 8, 2017)
+-------------------------
+
+- Recommended firmware version is now 1.1.0
+- Resource model is now read from file instead of hard-wired.
+- Added timeout-retry loops to recover from some firmware hiccups.
+- Several bugfixes.
+
+
+version 0.2 (Sep 11, 2017)
+--------------------------
+

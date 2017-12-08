@@ -1,0 +1,104 @@
+
+Virtual sensor software.
+========================
+
+
+Installation instructions
+=========================
+
+You will need Python 2.7 and the following third-party Python libraries:
+crcmod
+pyside
+serial
+
+
+Debian-based Linux:
+-------------------
+
+All requirements are packaged for Debian. They can be fulfilled by doing
+
+    apt-get install python python-crcmod python-pyside python-serial
+
+as root.
+
+Afterwards, the application can be run by changing into its directory and doing
+
+    python vs.py
+
+
+Windows:
+--------
+
+Python 2.7 can be obtained from https://www.python.org
+During the installation, make sure to say yes to:
+- pip
+- adding python.exe to the path
+
+For the other requirements:
+1. Start the Windows command line cmd
+2. Go to the Python directory, e.g.
+    C:
+    cd \Python27
+3. Then (you may need a proxy-less internet connection for that):
+    cd Scripts
+    pip install pyside
+    pip install crcmod
+    pip install pyserial
+4. Exit cmd
+
+Windows requires drivers for all hardware. In the case at hand, a driver for
+the USB-to-serial cable will be needed. Which one that is may be different for
+different cables, yet our experience is that the file CDM21228_Setup.zip from
+FTDI (search for "FTDI drivers") works in many cases.
+
+Afterwards, the application can be run by double-clicking on vs.py
+
+On Windows 7, there may be pestering about missing MSVCR120.dll. Apparently,
+it can be ignored.
+
+
+Hardware Setup
+==============
+
+There are three hardware components involved.
+1) The Sensor: A PC or other computer running the virtual sensor software.
+2) The Sender: A Texas Instruments SmartRF06 Evaluation board.
+3) The Server: A border router as described elsewhere.
+
+The Sensor is connected to the Sender via a USB-to-serial cable. Depending on
+the brand of said cable, the pins TX and RX may need to be swapped. The UART
+interface of the Sender must be enabled; that requires opening a jumper.
+
+The Sender is equipped with a Texas Instruments CC13xx module, flashed with
+the firmware CC13xx-noRTOS-sensorsim_v1.1.0.out
+
+The Server is in range of the Sender. It is also equipped with a CC13xx module,
+flashed with a firmware of the form slip-radio_ch*_50kbps.bin, where the
+asterisk stands for the channel used.
+
+
+Basic Usage
+===========
+
+The Start, Stop, and Quit buttons should be self-explanatory. All other UI
+fields are for configuration. Some of them cannot be changed while the Sensor
+is running; then it may be necessary to use the Stop button first.
+
+The UI fields:
+- Name of the sensor definition file
+  The virtual sensor can simulate different real sensors. This field is used to
+  select one of them. The next fields depend on the choice of sensor.
+- Serial port
+  The name the Sensor's OS uses to identify the serial port provided by the
+  USB-to-serial cable connecting the Sensor with the Sender.
+- Server IP and Server port
+  The IPv6 address the Server uses for communicating with the Sender.
+- Channel
+  The channel used by the Server's CC13xx as determined by its firmware (see
+  above under Hardware Setup).
+- Client MAC
+  The MAC that the Sender should use in communication with the Server. Each
+  Sender in the range of the Server should use a different MAC.
+- Client name
+  The name under which the virtual sensor should show up on the Server.
+

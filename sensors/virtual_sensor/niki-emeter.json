@@ -1,0 +1,103 @@
+[
+    { "COMMENT": "Voltage",
+        "obj": 3316,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Voltage / V",
+        "config name": "Voltage",
+        "range min": 0,
+        "range max": 10000,
+        "default min": 120,
+        "default max": 240
+    },
+    {
+        "obj": 3316,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "V"
+    },
+    {
+        "obj": 3316,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": 0
+    },
+    {
+        "obj": 3316,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 10000
+    },
+
+    { "COMMENT": "Current",
+        "obj": 3317,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Current / A",
+        "config name": "Current",
+        "range min": 0,
+        "range max": 100,
+        "default min": 1,
+        "default max": 8
+    },
+    {
+        "obj": 3317,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "A"
+    },
+    {
+        "obj": 3317,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": 0
+    },
+    {
+        "obj": 3317,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 100
+    },
+
+    { "COMMENT": "Power",
+        "obj": 3305,
+        "res": 5800,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Power / W",
+        "config name": "Power",
+        "range min": 0,
+        "range max": 30000,
+        "default min": 10,
+        "default max": 1000
+    },
+    {
+        "obj": 3305,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "W"
+    },
+    {
+        "obj": 3305,
+        "res": 5803,
+        "type": "float",
+        "value": "constant",
+        "constant": 0
+    },
+    {
+        "obj": 3305,
+        "res": 5804,
+        "type": "float",
+        "value": "constant",
+        "constant": 30000
+    }
+]

@@ -1,0 +1,205 @@
+[
+    { "COMMENT": "Humidity",
+        "obj": 3304,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Humidity / %",
+        "config name": "Humidity",
+        "range min": 0,
+        "range max": 100,
+        "default min": 10,
+        "default max": 90
+    },
+    {
+        "obj": 3304,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "%"
+    },
+    { "COMMENT": "The type 'string' is probably an IPSO bug. We play along.",
+        "obj": 3304,
+        "res": 5603,
+        "type": "string",
+        "value": "constant",
+        "constant": "0"
+    },
+    {
+        "obj": 3304,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 100
+    },
+
+    { "COMMENT": "Illuminance",
+        "obj": 3301,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Illuminance / Lux",
+        "config name": "Illuminance",
+        "range min": 0,
+        "range max": 10000,
+        "default min": 10,
+        "default max": 100
+    },
+    {
+        "obj": 3301,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "Lux"
+    },
+    {
+        "obj": 3301,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": 0
+    },
+    {
+        "obj": 3301,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 10000
+    },
+
+    { "COMMENT": "Pressure",
+        "obj": 3315,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Pressure / bar",
+        "config name": "Pressure",
+        "range min": 0,
+        "range max": 2,
+        "default min": 0.95,
+        "default max": 1.05
+    },
+    {
+        "obj": 3315,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "bar"
+    },
+    {
+        "obj": 3315,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": 0
+    },
+    {
+        "obj": 3315,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 2
+    },
+
+    { "COMMENT" : "Temperature",
+        "obj": 3303,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Temperature / \u00b0C",
+        "config name": "Temperature",
+        "range min": -263,
+        "range max": 10000,
+        "default min": -20,
+        "default max": 40
+    },
+    {
+        "obj": 3303,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "Celsius"
+    },
+    {
+        "obj": 3303,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": -263
+    },
+    {
+        "obj": 3303,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 10000
+    },
+
+    { "COMMENT" : "EIS airflow X",
+        "obj": 3601,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Airflow X / m/s",
+        "config name": "Airflow X",
+        "range min": -100,
+        "range max": 100,
+        "default min": -20,
+        "default max": 20
+    },
+    {
+        "obj": 3601,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "m/s"
+    },
+    {
+        "obj": 3601,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": -100
+    },
+    {
+        "obj": 3601,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 100
+    },
+
+    { "COMMENT" : "EIS airflow Y",
+        "obj": 3602,
+        "res": 5700,
+        "type": "float",
+        "value": "wave",
+        "UI name": "Airflow Y / m/s",
+        "config name": "Airflow Y",
+        "range min": -100,
+        "range max": 100,
+        "default min": -20,
+        "default max": 20
+    },
+    {
+        "obj": 3602,
+        "res": 5701,
+        "type": "string",
+        "value": "constant",
+        "constant": "m/s"
+    },
+    {
+        "obj": 3602,
+        "res": 5603,
+        "type": "float",
+        "value": "constant",
+        "constant": -100
+    },
+    {
+        "obj": 3602,
+        "res": 5604,
+        "type": "float",
+        "value": "constant",
+        "constant": 100
+    }
+]
