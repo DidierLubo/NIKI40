@@ -1,9 +1,9 @@
-[submodule "opcua-server"]
-	path = opcua-server
-	url = https://github.com/hso-esk/opcua-server.git
-[submodule "opcua-sensor-interface"]
-	path = opcua-sensor-interface
-	url = https://github.com/hso-esk/opcua-sensor-interface.git
-[submodule "opcua-lwm2m-server"]
-	path = opcua-lwm2m-server
+[submodule "gateway/opcua-lwm2m-server.git"]
+	path = gateway/opcua-lwm2m-server.git
 	url = https://github.com/hso-esk/opcua-lwm2m-server.git
+[submodule "gateway/opcua-sensor-interface"]
+	path = gateway/opcua-sensor-interface
+	url = https://github.com/hso-esk/opcua-sensor-interface.git
+[submodule "gateway/opcua-server"]
+	path = gateway/opcua-server
+	url = https://github.com/hso-esk/opcua-server.git
