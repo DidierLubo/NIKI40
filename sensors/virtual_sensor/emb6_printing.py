@@ -1,13 +1,13 @@
 # encoding: utf-8
 
-# Copyright 2017 NIKI 4.0 project team
+# Copyright 2017,2018 NIKI 4.0 project team
 #
 # NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
 # Project partners are FZI Forschungszentrum Informatik am Karlsruher
 # Institut für Technologie (www.fzi.de), Hahn-Schickard-Gesellschaft
 # für angewandte Forschung e.V. (www.hahn-schickard.de) and
 # Hochschule Offenburg (www.hs-offenburg.de).
-# This file was developed by Mark Weyer at Hahn-Schickard.
+# This file was developed by Mark Weyer and Sebastian King at Hahn-Schickard.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -189,6 +189,8 @@ def lwm2m(payload):
                     lwm2m_response_printer]),
             0x82: CasePrinter("RES_WR_REQ",
                 [int16_printer, int8_printer, int16_printer, hex_printer]),
+            0x92: CasePrinter("INST_WR_REQ",
+                 [int16_printer, int8_printer, int16_printer, hex_printer])
             },
         '(', payload, ')')
 

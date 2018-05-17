@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# Copyright 2017 NIKI 4.0 project team
+# Copyright 2017,2018 NIKI 4.0 project team
 #
 # NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
 # Project partners are FZI Forschungszentrum Informatik am Karlsruher
@@ -41,6 +41,7 @@ default_host_port = 5683
 default_client_mac = "0123456789abcdef"
 default_client_name = "Virtual sensor"
 default_sensor_definition_filename = "sensor_definition.json"
+default_timeout = 500
 
 
 class Config:
@@ -48,11 +49,13 @@ class Config:
     
     The class also provides means to synchronize these data with the UI."""
 
-    def __init__(self):
+    def __init__(self, cli_data):
         """Initialize the data to default values, then try to read the
         config file."""
 
         self.widget_updates = []
+        cli_sensor = cli_data.get('filename')
+        cli_timeout = cli_data.get('timeout')
         self.dict = {
             'port_name': default_portname_prefix(),
             'slip_channel': default_slip_channel,
@@ -62,6 +65,7 @@ class Config:
             'client_mac': default_client_mac,
             'update_delay': 1.0,
             'sensor_definition_filename': default_sensor_definition_filename,
+            'timeout': default_timeout,
             resources_key: {},
             }
         self.resource_widget_updates = []
@@ -69,18 +73,24 @@ class Config:
         # self.dict[resources_key] is empty, no resource-specific data will be
         # loaded.
         self.load()
+        if cli_sensor is not None:
+            self.dict['sensor_definition_filename'] = cli_sensor
+        if cli_timeout is not None and not cli_timeout < 0:
+            self.dict['timeout'] = cli_timeout
+
 
     def init_resources(self,resources):
         """Do the resource-specific part of initialization.
-        
+
         This has to be done (and redone) after the resource definition file
         has been loaded."""
         self.resource_widget_updates = []
         for resource in resources.list():
-            field_dict = {}
-            for field in resource.ui_fields:
-                field_dict[field.config_name] = field.default
-            self.dict[resources_key][resource.config_name] = field_dict
+            if not resource.value_generator.is_constant():
+                field_dict = {}
+                for field in resource.ui_fields:
+                    field_dict[field.config_name] = field.default
+                self.dict[resources_key][resource.names.config_name] = field_dict
         # Now we can initialize resource-specific data. We do not re-initialize
         # the previously initialized global data lest we overwrite changes that
         # have been done in the meantime.

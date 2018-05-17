@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# Copyright 2017 NIKI 4.0 project team
+# Copyright 2017,2018 NIKI 4.0 project team
 #
 # NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
 # Project partners are FZI Forschungszentrum Informatik am Karlsruher
@@ -28,6 +28,7 @@ This module can be used both for scripts and for protocols."""
 import protocol
 import emb6_frame
 import emb6_printing as printing
+import logging
 
 class UnexpectedResponse(emb6_frame.Emb6Error):
     """Indicate a response that does not follow protocol."""
@@ -40,7 +41,7 @@ class UnexpectedResponse(emb6_frame.Emb6Error):
             command_text = "(follow-up)"
         else:
             command_text = printing.message(self.command)
-        return command_text + " -> " \
+        return command_text + " -> "\
           + printing.message(self.actual_response) + " / " \
           + printing.message(self.expected_response)
 
@@ -48,10 +49,9 @@ class UnexpectedResponse(emb6_frame.Emb6Error):
 class Emb6:
     """GAS-level serial communication with an emb::6 device."""
 
-    def __init__(self,framer):
+    def __init__(self, framer, cli_dict):
         self.framer = framer
-        self.log = False
-        self.log_hex = False
+        self.cli_dict = cli_dict
 
     def read_frame(self):
         """Return the next frame (in hex)."""
@@ -63,19 +63,19 @@ class Emb6:
     def wait_for_frame(self,expected_frame):
         """Assert that the next frame is a specific one (in hex)."""
         frame = self.read_frame()
-        if frame is not None and self.log_hex:
-            print "<- ", frame
-        if frame is not None and self.log:
-            print "<- ", printing.message(frame)
+        if frame is not None and self.cli_dict.get('log_hex'):
+            print logging.timestamp(self.cli_dict) + " <- ", frame
+        if frame is not None and self.cli_dict.get('log'):
+            print logging.timestamp(self.cli_dict) + " <- ", printing.message(frame)
         if frame != expected_frame:
             raise UnexpectedResponse(None, frame, expected_frame)
 
     def expect_message(self,message,fail_pattern):
         frame = self.framer.read_hex()
-        if frame is not None and self.log_hex:
-            print "<- ", frame
-        if frame is not None and self.log:
-            print "<- ", printing.message(frame)
+        if frame is not None and self.cli_dict.get('log_hex'):
+            print logging.timestamp(self.cli_dict) + " <- ", frame
+        if frame is not None and self.cli_dict.get('log'):
+            print logging.timestamp(self.cli_dict) + " <- ", printing.message(frame)
         if frame is None:
             return protocol.wait
         elif frame==message:
@@ -91,16 +91,16 @@ class Emb6:
         A specific response may be expected (also given in hex).
         """
         self.framer.write_hex(command)
-        if self.log_hex:
-            print " ->", command
-        if self.log:
-            print " ->", printing.message(command)
+        if self.cli_dict.get('log_hex'):
+            print logging.timestamp(self.cli_dict) + "  ->", command
+        if self.cli_dict.get('log'):
+            print logging.timestamp(self.cli_dict) + "  ->", printing.message(command)
         if expected_response is not None:
             response = self.read_frame()
-            if self.log_hex:
-                print "<- ", response
-            if self.log:
-                print "<- ", printing.message(response)
+            if self.cli_dict.get('log_hex'):
+                print logging.timestamp(self.cli_dict) + " <- ", response
+            if self.cli_dict.get('log'):
+                print logging.timestamp(self.cli_dict) + " <- ", printing.message(response)
             if response != expected_response:
                 raise UnexpectedResponse(command, response, expected_response)
         return protocol.succeed
@@ -108,10 +108,10 @@ class Emb6:
     def hex_query(self,command):
         """Send a query (given in hex). Return the response (also in hex)."""
         self.framer.write_hex(command)
-        if self.log_hex:
-            print " ->", command
-        if self.log:
-            print " ->", printing.message(command)
+        if self.cli_dict.get('log_hex'):
+            print logging.timestamp(self.cli_dict) + "  ->", command
+        if self.cli_dict.get('log'):
+            print logging.timestamp(self.cli_dict) + "  ->", printing.message(command)
         return self.read_frame()
 
     def ping(self):
@@ -123,7 +123,6 @@ class Emb6:
         self.hex_command("31","0000")
         self.wait_for_frame("4131")
         self.wait_for_frame("e14131")
-#        self.hex_command("e131","0000")
         self.wait_for_frame("4132")
         self.wait_for_frame("e14132")
 

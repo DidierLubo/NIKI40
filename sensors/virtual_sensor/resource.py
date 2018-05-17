@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-# Copyright 2017 NIKI 4.0 project team
+# Copyright 2017,2018 NIKI 4.0 project team
 #
 # NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
 # Project partners are FZI Forschungszentrum Informatik am Karlsruher
@@ -40,7 +40,7 @@ class SensorDefinitionTypeError(SensorDefinitionReadError): pass
 class SensorDefinitionInternalError(SensorDefinitionReadError): pass
 
 
-ui_type_float, ui_type_enum, ui_type_string = range(3)
+ui_type_float, ui_type_enum, ui_type_string, ui_type_bool = range(4)
 """Designate to the UI the type of UI-controlled fields."""
 
 UiField = collections.namedtuple('UiField',
@@ -169,34 +169,40 @@ resource_type_FLOAT = 2
 resource_type_STRING = 3
 resource_type_METHOD = 4
 
+Names = collections.namedtuple('Names', ['ui_name', 'config_name'])
+
+noname = Names('','')
+
 Resource = collections.namedtuple('Resource',
     ['obj_id', 'res_id', 'type', 'size',
-        'ui_name', 'config_name', 'ui_fields', 'value_generator'])
+        'names', 'ui_fields', 'value_generator'])
 """Defines a single resource."""
 
 
 def constant_float_resource(obj, res, value):
-    return Resource(obj, res, resource_type_FLOAT, 4, '', '', [],
+    return Resource(obj, res, resource_type_FLOAT, 4, noname, [],
         ConstantValueGenerator(value))
 
 def constant_string_resource(obj, res, value):
-    return Resource(obj, res, resource_type_STRING, len(value)+1, '', '', [],
+    return Resource(obj, res, resource_type_STRING, len(value)+1, noname, [],
         ConstantValueGenerator(value))
 
-def ui_bool_resource(obj, res, ui_name, config_name):
-    return Resource(obj, res, resource_type_BOOL, 4, ui_name, config_name,
+def ui_bool_resource(obj, res, names):
+    return Resource(obj, res, resource_type_BOOL, 4, names,
         [
+            UiField('Update', 'check_status', ui_type_bool, True, []),
             UiField('Frequency / mHz', 'frequency', ui_type_float, 25,
                 FloatExtraData(1, 10000)),
             UiField('Waveform', 'waveform', ui_type_enum, "Alternating",
                 EnumExtraData(waveform.bool)),
             ],
-        WaveValueGenerator(config_name, waveform.bool))
+        WaveValueGenerator(names.config_name, waveform.bool))
 
-def ui_int_resource(obj, res, ui_name, config_name,
+def ui_int_resource(obj, res, names,
         range_min, range_max, default_min, default_max):
-    return Resource(obj, res, resource_type_INT, 4, ui_name, config_name,
+    return Resource(obj, res, resource_type_INT, 4, names,
         [
+            UiField('Update', 'check_status', ui_type_bool, True, []),
             UiField('min', 'wave_min', ui_type_float, default_min,
                 FloatExtraData(range_min, range_max)),
             UiField('max', 'wave_max', ui_type_float, default_max,
@@ -206,12 +212,14 @@ def ui_int_resource(obj, res, ui_name, config_name,
             UiField('Waveform', 'waveform', ui_type_enum, "Sine",
                 EnumExtraData(waveform.float)),
             ],
-        WaveIntValueGenerator(config_name))
+        WaveIntValueGenerator(names.config_name))
 
-def ui_float_resource(obj, res, ui_name, config_name,
+def ui_float_resource(obj, res, names,
         range_min, range_max, default_min, default_max):
-    return Resource(obj, res, resource_type_FLOAT, 4, ui_name, config_name,
+    return Resource(obj, res, resource_type_FLOAT, 4, names,
         [
+
+            UiField('Update', 'check_status', ui_type_bool, True, []),
             UiField('min', 'wave_min', ui_type_float, default_min,
                 FloatExtraData(range_min, range_max)),
             UiField('max', 'wave_max', ui_type_float, default_max,
@@ -221,7 +229,7 @@ def ui_float_resource(obj, res, ui_name, config_name,
             UiField('Waveform', 'waveform', ui_type_enum, "Sine",
                 EnumExtraData(waveform.float)),
             ],
-        WaveFloatValueGenerator(config_name))
+        WaveFloatValueGenerator(names.config_name))
 
 
 def get_entry(dict,field,types):
@@ -234,12 +242,21 @@ def get_entry(dict,field,types):
     else:
         raise SensorDefinitionParseError()
 
+def get_names(dict):
+    if 'name' in dict:
+        name = get_entry(dict,'name',string_types)
+        return Names(name,name)
+    else:
+        return Names(
+            get_entry(dict,'UI name',string_types),
+            get_entry(dict,'config name',string_types))
+
 int_types = [types.IntType]
 float_types = [types.IntType, types.FloatType]
 string_types = [types.UnicodeType]
 
 
-def ui_enum_resource(obj, res, ui_name, config_name, values):
+def ui_enum_resource(obj, res, names, values):
     def parse_pair(pair):
         if type(pair)==types.DictType:
             return (
@@ -249,28 +266,36 @@ def ui_enum_resource(obj, res, ui_name, config_name, values):
             raise SensorDefinitionTypeError()
 
     the_enum = enum.Enum([parse_pair(pair) for pair in values])
-    return Resource(obj, res, resource_type_INT, 4, ui_name, config_name,
+    return Resource(obj, res, resource_type_INT, 4, names,
         [
+            UiField('Update', 'check_status', ui_type_bool, True, []),
             UiField('Value', 'value', ui_type_enum, the_enum.list[0][0],
                 EnumExtraData(the_enum))],
-        EnumValueGenerator(config_name, 'value', the_enum))
+        EnumValueGenerator(names.config_name, 'value', the_enum))
 
 
-def ui_string_resource(obj, res, ui_name, config_name, max_length, default):
+def ui_string_resource(obj, res, names, max_length, default):
     return Resource(
-        obj, res, resource_type_STRING, max_length+1, ui_name, config_name,
+        obj, res, resource_type_STRING, max_length+1, names,
         [
+            UiField('Update', 'check_status', ui_type_bool, True, []),
             UiField('Value', 'value', ui_type_string, default,
                 StringExtraData(max_length)),
             ],
-        FreeformStringValueGenerator(config_name))
+        FreeformStringValueGenerator(names.config_name))
 
 
 class Resources:
-    """Manages the available resources."""
+    """Manages the available resources.
+    
+    Fields:
+    resources: list of all resources
+    non_constant: dict mapping object ids to lists of non-constant resources
+    """
 
     def __init__(self):
         self.resources = []
+        self.non_constant = {}
 
     def load(self,filename):
         self.resources = []
@@ -295,25 +320,21 @@ class Resources:
                     value = get_field("value", string_types)
                     if type_=='bool' and value=='wave':
                         resource = ui_bool_resource(obj_id, res_id,
-                            get_field("UI name", string_types),
-                            get_field("config name", string_types))
+                            get_names(resource_def))
                     elif type_=='int' and value=='wave':
                         resource = ui_int_resource(obj_id, res_id,
-                            get_field("UI name", string_types),
-                            get_field("config name", string_types),
+                            get_names(resource_def),
                             get_field("range min", float_types),
                             get_field("range max", float_types),
                             get_field("default min", float_types),
                             get_field("default max", float_types))
                     elif type_=='int' and value=='enum':
                         resource = ui_enum_resource(obj_id, res_id,
-                            get_field("UI name", string_types),
-                            get_field("config name", string_types),
+                            get_names(resource_def),
                             get_field("values", [types.ListType]))
                     elif type_=='float' and value=='wave':
                         resource = ui_float_resource(obj_id, res_id,
-                            get_field("UI name", string_types),
-                            get_field("config name", string_types),
+                            get_names(resource_def),
                             get_field("range min", float_types),
                             get_field("range max", float_types),
                             get_field("default min", float_types),
@@ -323,8 +344,7 @@ class Resources:
                             get_field("constant", float_types))
                     elif type_=='string' and value=='freeform':
                         resource = ui_string_resource(obj_id, res_id,
-                            get_field("UI name", string_types),
-                            get_field("config name", string_types),
+                            get_names(resource_def),
                             get_field("max length", int_types),
                             get_field("default", string_types))
                     elif type_=='string' and value=='constant':
@@ -339,5 +359,18 @@ class Resources:
         else:
             raise SensorDefinitionTypeError()
 
-    def list(self): return self.resources
+        # Now, group the non-constant resources by object id
+        self.non_constant = {}
+        for r in self.resources:
+            if not r.value_generator.is_constant():
+                if r.obj_id in self.non_constant:
+                    self.non_constant[r.obj_id].append(r)
+                else:
+                    self.non_constant[r.obj_id] = [r]
+
+    def list(self):
+        return self.resources
+
+    def non_constant_by_object(self):
+        return self.non_constant
 

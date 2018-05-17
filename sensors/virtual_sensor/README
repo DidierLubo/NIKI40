@@ -70,7 +70,7 @@ the brand of said cable, the pins TX and RX may need to be swapped. The UART
 interface of the Sender must be enabled; that requires opening a jumper.
 
 The Sender is equipped with a Texas Instruments CC13xx module, flashed with
-the firmware CC13xx-noRTOS-sensorsim_v1.1.0.out
+the firmware CC13xx-noRTOS-sensorsim_v1.2.4.out
 
 The Server is in range of the Sender. It is also equipped with a CC13xx module,
 flashed with a firmware of the form slip-radio_ch*_50kbps.bin, where the
@@ -80,7 +80,7 @@ asterisk stands for the channel used.
 Basic Usage
 ===========
 
-The Start, Stop, and Quit buttons should be self-explanatory. All other UI
+The Start/Stop and Quit buttons should be self-explanatory. All other UI
 fields are for configuration. Some of them cannot be changed while the Sensor
 is running; then it may be necessary to use the Stop button first.
 

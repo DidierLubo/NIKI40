@@ -1,13 +1,13 @@
 # encoding: utf-8
 
-# Copyright 2017 NIKI 4.0 project team
+# Copyright 2017,2018 NIKI 4.0 project team
 #
 # NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
 # Project partners are FZI Forschungszentrum Informatik am Karlsruher
 # Institut für Technologie (www.fzi.de), Hahn-Schickard-Gesellschaft
 # für angewandte Forschung e.V. (www.hahn-schickard.de) and
 # Hochschule Offenburg (www.hs-offenburg.de).
-# This file was developed by Mark Weyer at Hahn-Schickard.
+# This file was developed by Mark Weyer and Sebastian King at Hahn-Schickard.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -37,10 +37,12 @@ class Internal(Exception): pass
 class window(gui.QWidget):
     """The ui window."""
 
-    def __init__(self,config,resources,timer):
+    def __init__(self, config, resources, timer, cli_data):
 
-        self.resources = resources
+        self.cli_data = cli_data
         self.config = config
+        self.resources = resources
+        self.timer = timer
         self.error_label = gui.QLabel()
         self.started = False
 
@@ -169,24 +171,28 @@ class window(gui.QWidget):
             [sens_def_browse_button, load_button]
         self.lock_widgets = \
             [self.sens_def_filename, port, ip, host_port, channel, mac, client]
-        self.deamon = deamon.Deamon(self, config, progress, status, resources)
+        self.deamon = deamon.Deamon(
+            self, config, progress, status, resources, self.cli_data)
         self.init_resources()
         self.start_stop_button.clicked.connect(self.start_stop)
-        timer.timeout.connect(self.deamon.tick)
-        timer.start()
+        self.timer.timeout.connect(self.deamon.tick)
 
         self.show()
 
 
     def start_stop(self):
         if self.started:
-            self.deamon.stop()
-            self.started = False
-            self.start_stop_button.setText("Start")
+            self.deamon.stop()  # will eventually call stopped
         else:
-            self.deamon.start()
             self.started = True
             self.start_stop_button.setText("Stop")
+            self.timer.start(0)
+            self.deamon.start()
+
+    def stopped(self):
+        self.started = False
+        self.start_stop_button.setText("Start")
+        self.timer.stop()
 
     def init_resources(self):
         new_sens_def_filename = self.config.value('sensor_definition_filename')
@@ -219,26 +225,32 @@ class window(gui.QWidget):
         inner_inner_widget = gui.QWidget()
         layout = gui.QGridLayout(inner_inner_widget)
 
-        def field_column(name):
+        boxes = []
+
+        def field_column(name, anonymous=False):
             if name in field_columns:
                 return field_columns[name]
             else:
                 num_fields[0] += 1
                 field_columns[name] = num_fields[0]
-                layout.addWidget(gui.QLabel(name), 0, num_fields[0])
+                if not anonymous:
+                    layout.addWidget(gui.QLabel(name), 0, num_fields[0])
                 return num_fields[0]
+
+        field_column('Update', True)
 
         for resource in self.resources.list():
             if resource.ui_fields != []:
                 num_resources += 1
-                layout.addWidget(gui.QLabel(resource.ui_name), num_resources, 0)
+                layout.addWidget(
+                    gui.QLabel(resource.names.ui_name), num_resources, field_column('name', True))
 
                 def handle_float_field(field):
                     widget = gui.QDoubleSpinBox()
                     widget.setRange(
                         field.extra_data.range_min, field.extra_data.range_max)
                     self.config.connect_resource(
-                        resource.config_name, field.config_name,
+                        resource.names.config_name, field.config_name,
                         widget.valueChanged.connect, widget.setValue)
                     layout.addWidget(
                         widget, num_resources, field_column(field.ui_name))
@@ -248,7 +260,7 @@ class window(gui.QWidget):
                     enum = field.extra_data.enum
                     widget.addItems([key for key,form in enum.list])
                     self.config.connect_resource(
-                        resource.config_name, field.config_name,
+                        resource.names.config_name, field.config_name,
                         lambda slot:
                             widget.currentIndexChanged.connect(
                                 lambda index:
@@ -262,13 +274,28 @@ class window(gui.QWidget):
                     widget = gui.QLineEdit()
                     widget.setMaxLength(field.extra_data.max_length)
                     self.config.connect_resource(
-                        resource.config_name, field.config_name,
+                        resource.names.config_name, field.config_name,
                         lambda slot:
                             widget.editingFinished.connect(
                                 lambda: slot(widget.text())),
                         lambda v: widget.setText(v))
                     layout.addWidget(
                         widget, num_resources, field_column(field.ui_name))
+
+                def handle_bool_field(field):
+                    widget = gui.QCheckBox()
+                    self.config.connect_resource(
+                        resource.names.config_name, field.config_name,
+                        lambda slot:
+                            widget.toggled.connect(
+                                lambda: slot(widget.isChecked())
+                            ),
+                        lambda s: widget.setChecked(s))
+                    layout.addWidget(
+                        widget, num_resources, field_column(field.ui_name) - 1)
+                    if self.cli_data['instance_write'] and field_column(field.ui_name) - 1 == 0:
+                        boxes.append((resource, widget))
+                        widget, num_resources, field_column(field.ui_name)
 
                 for field in resource.ui_fields:
                     if field.type == res.ui_type_float:
@@ -277,8 +304,19 @@ class window(gui.QWidget):
                         handle_enum_field(field)
                     elif field.type == res.ui_type_string:
                         handle_string_field(field)
+                    elif field.type == res.ui_type_bool:
+                        handle_bool_field(field)
                     else:
                         raise Internal()
+
+                if self.cli_data['instance_write']:
+                    def println(box):
+                        for cb in boxes:
+                            if box[0].obj_id == cb[0].obj_id:
+                                cb[1].setChecked(box[1].isChecked())
+
+                    for box in boxes:
+                        box[1].clicked.connect(lambda box=box: println(box))
 
         if num_resources <= 6:
             layout.setContentsMargins(0,0,0,0)
@@ -286,19 +324,19 @@ class window(gui.QWidget):
         else:
             self.inner_resource_widget = gui.QScrollArea()
             self.inner_resource_widget.setWidget(inner_inner_widget)
+            self.inner_resource_widget.setMinimumHeight(1)
+            self.inner_resource_widget.setHorizontalScrollBarPolicy(core.Qt.ScrollBarAlwaysOff)
+            self.inner_resource_widget.setWidgetResizable(True)
             self.inner_resource_widget.setMinimumWidth(
                 inner_inner_widget.sizeHint().width()
-                + layout.contentsMargins().right()
-                + self.inner_resource_widget.verticalScrollBar()
-                    .sizeHint().width())
-            self.inner_resource_widget.setMinimumHeight(
-                self.size().height() // 2)
+                + 2 * self.inner_resource_widget.frameWidth()
+                + self.inner_resource_widget.verticalScrollBar().sizeHint().width())
+            self.inner_resource_widget.setMinimumHeight(240)
         self.outer_resource_widget.addWidget(self.inner_resource_widget)
         self.updateGeometry()
         self.adjustSize()
         self.repaint()
         self.deamon.init_measurements()
-
 
     def lock_unlock(self,lock):
         """Lock or unlock those widgets which cannot be changed during

@@ -1,4 +1,17 @@
 
+version 1.1 (May 17, 2018)
+--------------------------
+
+- Recommended firmware version is now 1.2.4
+- Added command line interface.
+- Made amount of timeout configurable.
+- Added support for newer serial API versions which use inverted length field.
+- Added support for LWM2M_INST_WR_REQ.
+- Added values-only version of niki-eis.json
+- Added possibility to exempt resources from sending updates.
+- Several bugfixes.
+
+
 version 1.0 (Dec 8, 2017)
 -------------------------
 
