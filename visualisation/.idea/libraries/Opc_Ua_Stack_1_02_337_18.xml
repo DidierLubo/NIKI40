@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Opc.Ua.Stack-1.02.337.18">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/libs/Opc.Ua.Stack-1.02.337.18.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

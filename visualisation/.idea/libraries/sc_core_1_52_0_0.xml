@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="sc-core-1.52.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/libs/sc-core-1.52.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

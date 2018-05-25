@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="scprov-1.52.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/libs/scprov-1.52.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

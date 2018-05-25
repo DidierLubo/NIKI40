@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-        Copyright 2017 NIKI 4.0 project team
+        Copyright 2016-2018 NIKI 4.0 project team
 
         NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
         Project partners are FZI Forschungszentrum Informatik am Karlsruher
         Institut für Technologie (www.fzi.de), Hahn-Schickard-Gesellschaft
         für angewandte Forschung e.V. (www.hahn-schickard.de) and
         Hochschule Offenburg (www.hs-offenburg.de).
+
         This file was developed by FZI Forschungszentrum Informatik
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,16 +22,14 @@
         See the License for the specific language governing permissions and
         limitations under the License.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.fzi.niki40.eisarvisualisation">
 
-    package="fzi.niki_ar"
-    android:versionCode="70000"
-    android:versionName="7.0">
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature
         android:name="android.hardware.camera"
@@ -48,39 +47,57 @@
         android:xlargeScreens="true" />
 
     <application
-        android:name=".ARSimpleApplication"
+        android:name="de.fzi.niki40.eisarvisualisation.EisArApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:configChanges="keyboardHidden|orientation|screenSize"
-    >
-        <activity android:name=".ARSimple"
+        android:label="NIKI 4.0"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:configChanges="keyboardHidden|orientation" >
 
-            android:label="@string/app_name">
+        <activity android:name=".ScanServerNodeIDs"
+            android:theme="@android:style/Theme.Material.Light"
 
+            android:label="NIKI 4.0">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".HistoryVisualizationArActivity">
 
         </activity>
-        <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity">
+        <activity
+            android:name="de.fzi.niki40.eisarvisualisation.bluetooth_connection.DeviceScanActivity"
+            android:theme="@android:style/Theme.Material.Light"
+            android:label="niki40">
+
+        </activity>
+        <activity android:name="de.fzi.niki40.eisarvisualisation.EisArActivity"
+            android:theme="@android:style/Theme.Material.Light" />
+        <activity android:name="de.fzi.niki40.eisarvisualisation.HistoryNavigationActivty"
+            android:theme="@android:style/Theme.Material.Light" />
+        <activity
+            android:name="de.fzi.niki40.eisarvisualisation.error.ErrorActivity"
+            android:label="@string/title_activity_error"
+            android:theme="@style/AppTheme" />
+        <activity android:name="org.artoolkit.ar.base.camera.CameraPreferencesActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:icon="@mipmap/ic_launcher_pref"
+            android:label="NIKI 4.0 Camera Pref.">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DataActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.DataActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <service
-            android:name=".OPCUaConnection"
-            android:exported="false" />
+        <service android:name="de.fzi.niki40.eisarvisualisation.bluetooth_connection.BluetoothLeService" android:enabled="true"/>
+        <service android:name=".ScanServerService" android:exported="false" />
+        <service android:name=".OPCUA_Connector">
+        </service>
+        <service android:name=".GetHistoryDataService">
+        </service>
+
     </application>
 
 </manifest>

@@ -1,19 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 22
+    buildToolsVersion '25.0.0'
+
     defaultConfig {
-        applicationId "fzi.niki_ar"
-        minSdkVersion 15
+        applicationId "de.fzi.niki40.eisarvisualisation"
+        minSdkVersion 21
         targetSdkVersion 22
-        versionCode 2
-        versionName "2.0"
-
-        jackOptions {
-            enabled true
-        }
-
+        versionCode 1
+        versionName "1.0"
     }
     buildTypes {
         release {
@@ -21,22 +17,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/libs']
+        }
     }
-
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile fileTree(include: ['*.jar'], dir: 'jniLibs')
-    compile 'com.android.support:appcompat-v7:26.+'
+    //compile files('libs/junit-4.12.jar')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:design:22.2.0'
     compile project(':aRBaseLib')
-    compile files('src/main/jniLibs/bcpkix-jdk15on-152.jar')
-    compile files('src/main/jniLibs/Opc.Ua.Stack-1.02.337.18.jar')
-    compile files('src/main/jniLibs/Prosys-OPC-UA-Java-SDK-Client-Binary-2.3.2-781.jar')
-    compile files('src/main/jniLibs/sc-core-1.52.0.0.jar')
-    compile files('src/main/jniLibs/scprov-1.52.0.0.jar')
-    compile files('src/main/jniLibs/slf4j-android-1.6.1-RC1.jar')
+    compile files('src/main/libs/bcpkix-jdk15on-152.jar')
+    compile files('src/main/libs/Opc.Ua.Stack-1.02.337.18.jar')
+    compile files('src/main/libs/Prosys-OPC-UA-Java-SDK-Client-Binary-2.3.2-781.jar')
+    compile files('src/main/libs/sc-core-1.52.0.0.jar')
+    compile files('src/main/libs/scprov-1.52.0.0.jar')
+    compile files('src/main/libs/slf4j-android-1.6.1-RC1.jar')
 }

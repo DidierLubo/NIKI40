@@ -1,3 +1,37 @@
 <resources>
-    <string name="app_name">Niki_AR</string>
+    <string name="app_name">NIKI 4.0 AR Vi</string>
+    <string name="title_scan_activity">Bluetooth LE Device Scan</string>
+    <string name="title_activity_error">ErrorActivity</string>
+    <string name="unknown_device">Unknown Device</string>
+    <string name="empty_ble_list">No BLE Device Found</string>
+
+    <!--Error messages-->
+    <string name="error_ble_not_supported">BLE is not supported</string>
+    <string name="error_bluetooth_not_enabled">You need to enable bluetooth in order to use this application</string>
+    <string name="error_bluetooth_not_supported">Bluetooth is not supported on your device</string>
+    <string name="toast_no_device_found">There is no bluetooth low energy device within reach</string>
+
+    <string name="title_error">Unfortunately an error occurred</string>
+    <string name="error_wrong_device">You chose an incorrect bluetooth device</string>
+    <string name="error_few_devices">Not all required eisSensors are in range</string>
+    <string name="error_disconnected">Disconnected from the eisSensors</string>
+
+    <string name="airflow_string">air flow</string>
+    <string name="temperature_string">Temperature:</string>
+    <string name="no_data">no data</string>
+    <string name="sensor1">Sensor 1 - Air:</string>
+    <string name="sensor2">Sensor 2 - Air:</string>
+    <string name="sensor3">Sensor 3 - Air:</string>
+
+    <!-- Menu items -->
+    <string name="menu_scan">Scan</string>
+    <string name="menu_stop">Stop</string>
+
+    <!--Button texts-->
+    <string name="button_connect">Connect</string>
+
+    <!-- Tab titles-->
+    <string name="tab_title_air">Airflow</string>
+    <string name="tab_title_temp">Temperature</string>
+
 </resources>

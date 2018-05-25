@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+        Copyright 2016-2018 NIKI 4.0 project team
+        NIKI 4.0 was financed by the Baden-Württemberg Stiftung gGmbH (www.bwstiftung.de).
+        Project partners are FZI Forschungszentrum Informatik am Karlsruher
+        Institut für Technologie (www.fzi.de), Hahn-Schickard-Gesellschaft
+        für angewandte Forschung e.V. (www.hahn-schickard.de) and
+        Hochschule Offenburg (www.hs-offenburg.de).
+        This file was developed by FZI Forschungszentrum Informatik
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewIP"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Please enter the IP Address of the OPC UA Server" />
+
+    <EditText
+        android:id="@+id/editTextServerIP"
+        android:layout_width="265dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewIP"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/saveURL"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/editTextServerIP"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/editTextServerIP"
+        android:text="Save IP" />
+
+    <TextView
+        android:id="@+id/textViewSensor"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextServerIP"
+        android:layout_marginTop="29dp"
+        android:text="Please Enter a Sensor" />
+
+    <EditText
+        android:id="@+id/sensorName1"
+        android:layout_width="265dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewSensor"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/addSensor"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignStart="@+id/saveURL"
+        android:layout_alignTop="@+id/sensorName1"
+        android:text="Add Sensor" />
+
+    <Button
+        android:id="@+id/deleteSensor"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@+id/addSensor"
+        android:layout_marginStart="18dp"
+        android:layout_toEndOf="@+id/addSensor"
+        android:text="Del Sensor" />
+
+    <ListView
+        android:id="@+id/listViewSensors"
+        android:layout_width="200dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="21dp"
+        android:layout_below="@+id/sensorName1"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:id="@+id/listViewOperations"
+        android:layout_width="260dp"
+        android:layout_height="280dp"
+        android:layout_alignTop="@+id/listViewSensors"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textViewInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listViewSensors"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/listViewSensors" />
+
+    <TextView
+        android:id="@+id/textViewAllSensors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/listViewOperations"
+        android:layout_below="@+id/listViewOperations"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="23dp" />
+
+    <ListView
+        android:id="@+id/listViewnotfound"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/textViewInformation"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/textView9"
+        android:layout_toStartOf="@+id/addSensor"
+        android:textColor="#00BB00" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textViewInformation"
+        android:layout_alignParentStart="true"
+        android:text="Registered Sensors" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menu of Commands"
+        android:layout_above="@+id/listViewOperations"
+        android:layout_alignStart="@+id/listViewOperations" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/listViewSensors"
+        android:text="Non Registered Sensors" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Prosys-OPC-UA-Java-SDK-Client-Binary-2.3.2-781">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/src/main/libs/Prosys-OPC-UA-Java-SDK-Client-Binary-2.3.2-781.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
