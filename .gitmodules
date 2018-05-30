@@ -7,3 +7,6 @@
 [submodule "gateway/opcua-server"]
 	path = gateway/opcua-server
 	url = https://github.com/hso-esk/opcua-server.git
+[submodule "sensors/emb6"]
+	path = sensors/emb6
+	url = https://github.com/hso-esk/emb6.git
