@@ -1,0 +1,23 @@
+﻿Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~EIS_CO2.PrjPcb|ReportField=ProjectFullPath~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\EIS_CO2.PrjPcb|ReportField=Title~Bill of Materials For Project [EIS_CO2.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~42|ReportField=ReportTime~12:24:16|ReportField=ReportDate~29.07.2015|ReportField=ReportDateTime~29.07.2015 12:24:16|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~Wilhelm-Schickard-Str. 10|ReportField=Address2~78052 Villingen-Schwenningen|ReportField=Address3~Bernd.Ehrbrecht@Hahn-Schickard.de|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~29.07.2015|ReportField=CurrentTime~11:39:24|ReportField=Date~|ReportField=DocumentFullPathAndName~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\EIS_Sensoren.SchDoc|ReportField=DocumentName~EIS_Sensoren.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~|ReportField=E-Mail~Bernd.Ehrbrecht@Hahn-Schickard.de|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~22.07.2015|ReportField=Organization~Hahn-Schickard|ReportField=PhoneNumber~0 7721 943 137|ReportField=ProjectName~EIS_CO2.PrjPcb|ReportField=Revision~1.0|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~2|ReportField=Subtitle~|ReportField=Time~|ReportField=Title~EIS: CO2 / Temp / Feuchte / Druck / Licht|ReportField=DataSourceFileName~EIS_CO2.PrjPcb|ReportField=DataSourceFullPath~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\EIS_CO2.PrjPcb
+220uF / 10V|Polarized Capacitor (Surface Mount)|C1, C106|D|Cap Pol3|2
+100nF||C2, C3, C5, C6, C100, C110, C111|CAPC1608N|Kondensator SMD Keramik|7
+1uF||C4, C101|CAPC3216N|Kondensator SMD Keramik|2
+10uF||C102, C103, C104, C107, C108, C109|CAPC3216N|Kondensator SMD Keramik|6
+10nF||C105|CAPC1608N|Kondensator SMD Keramik|1
+47nF||C112|CAPC1608N|Kondensator SMD Keramik|1
+CLF6045T-2R2N|Inductor|L100|CLF6045|Inductor|1
+BSS123|N-channel Enhancement Mode Vertical D-MOSFET|Q1, Q2|SOT23_N|BSS123|2
+100k|RESC1608 (R0603)|R1, R2, R6, R7, R104|RESC1608N|RESC1608 (R0603)|5
+4,7k|RESC1608 (R0603)|R3, R4, R5|RESC1608N|RESC1608 (R0603)|3
+3.9meg|RESC1608 (R0603)|R100|RESC1608N|RESC1608 (R0603)|1
+150k|RESC1608 (R0603)|R101|RESC1608N|RESC1608 (R0603)|1
+330k|RESC1608 (R0603)|R102|RESC1608N|RESC1608 (R0603)|1
+3.9k|RESC1608 (R0603)|R103|RESC1608N|RESC1608 (R0603)|1
+nc|RESC1608 (R0603)|R105|RESC1608N|RESC1608 (R0603)|1
+Molex 533980571|MOLEX - 53398-0571 - STIFTLEISTE, SMT, 1.25MM, 5POL|ST1|Molex 533980571|Molex 533980571|1
+Molex 533981271|Molex Pico 12Pol Blade SMD gerade 533980871|ST2|Molex 533981271|Molex 533981271|1
+Molex 533980771|Molex Pico 7Pol Blade SMD gerade 533980771|ST3|Molex 533980771|Molex 533980771|1
+EE893-02C2|CO2-Sensor; I²C-Interface,|U1|EE893|EE893-02C2|1
+Si1132|UV INDEX AND AMBIENT LIGHT SENSOR IC WITH I2C INTERFACE, QFN 2x2mm|U2|Si1132|Si1132|1
+BME280|Bosch, Druck & Feuchte-Sensor, I2C / SPI|U3|BME280|BME280|1
+TPS61088|Boost Schaltregler, 2,7V - 12 Uin / 4.5V-12.6V Uout / 3A / 1µA Shutdown|U100|RHL0020A|TPS61088|1

@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<settings>
+    <DebugChecksum>
+        <Checksum>3573513590</Checksum>
+    </DebugChecksum>
+    <Stack>
+        <FillEnabled>0</FillEnabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>1</SpWarningsEnabled>
+        <WarnLogOnly>1</WarnLogOnly>
+        <UseTrigger>1</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </Stack>
+    <EEM_State_Storage>
+        <Buffer>010000000000000000000000</Buffer>
+    </EEM_State_Storage>
+    <EEM_Sequencer>
+        <Buffer>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Buffer>
+    </EEM_Sequencer>
+    <EEM_Cycle_Counter_0>
+        <Counter0>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Counter0>
+    </EEM_Cycle_Counter_0>
+    <EEM_Cycle_Counter_1>
+        <Counter1>0000000000000000000000000000000000000000000000000000000000000000</Counter1>
+    </EEM_Cycle_Counter_1>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <Disassembly>
+        <MixedMode>1</MixedMode>
+    </Disassembly>
+    <Log_file>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </Log_file>
+    <PowerLog>
+        <Title_0>Energy</Title_0>
+        <Symbol_0>0 4 0</Symbol_0>
+        <Title_1>Voltage</Title_1>
+        <Symbol_1>0 4 0</Symbol_1>
+        <Title_2>Current</Title_2>
+        <Symbol_2>0 4 0</Symbol_2>
+        <LogEnabled>0</LogEnabled>
+        <GraphEnabled>0</GraphEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <LiveEnabled>0</LiveEnabled>
+        <LiveFile>PowerLogLive.log</LiveFile>
+    </PowerLog>
+    <PowerProbe>
+        <Frequency>10000</Frequency>
+        <Probe0>Current</Probe0>
+        <ProbeSetup0>0 1 1 2 0 0</ProbeSetup0>
+        <Probe1>Voltage</Probe1>
+        <ProbeSetup1>1 1 1 4 0 0</ProbeSetup1>
+        <Probe2>Energy</Probe2>
+        <ProbeSetup2>4 1 1 10 0 0</ProbeSetup2>
+    </PowerProbe>
+    <DataSampleStripe>
+        <Title0>uiStartUpStep</Title0>
+        <Setup0>0 1 0 0 1 0 0 0 65535</Setup0>
+        <Title1>guiLWM2M_Status</Title1>
+        <Setup1>0 1 0 0 1 0 0 0 4294967295</Setup1>
+    </DataSampleStripe>
+    <struct_types>
+        <Fmt0>ST_LWM2M_CFG_t-wBS_SRV_PORT	3	0</Fmt0>
+        <Fmt1>ST_LWM2M_CFG_t-wSRV_PORT	4	0</Fmt1>
+    </struct_types>
+    <DataSample>
+        <Title_0>uiStartUpStep</Title_0>
+        <Symbol_0>0 2 0</Symbol_0>
+        <Title_1>guiLWM2M_Status</Title_1>
+        <Symbol_1>0 4 1</Symbol_1>
+        <Title_2>uiStartUpStep</Title_2>
+        <Symbol_2>0 2 0</Symbol_2>
+        <Title_3>guiLWM2M_Status</Title_3>
+        <Symbol_3>0 4 1</Symbol_3>
+        <Title_4>uiStartUpStep</Title_4>
+        <Symbol_4>0 2 0</Symbol_4>
+        <Title_5>guiLWM2M_Status</Title_5>
+        <Symbol_5>0 4 1</Symbol_5>
+        <Title_6>uiStartUpStep</Title_6>
+        <Symbol_6>0 2 0</Symbol_6>
+        <Title_7>guiLWM2M_Status</Title_7>
+        <Symbol_7>0 4 1</Symbol_7>
+        <Title_8>uiStartUpStep</Title_8>
+        <Symbol_8>0 2 0</Symbol_8>
+        <Title_9>guiLWM2M_Status</Title_9>
+        <Symbol_9>0 4 1</Symbol_9>
+        <Title_10>uiStartUpStep</Title_10>
+        <Symbol_10>0 2 0</Symbol_10>
+        <Title_11>guiLWM2M_Status</Title_11>
+        <Symbol_11>0 4 1</Symbol_11>
+        <Title_12>uiStartUpStep</Title_12>
+        <Symbol_12>0 2 0</Symbol_12>
+        <Title_13>guiLWM2M_Status</Title_13>
+        <Symbol_13>0 4 1</Symbol_13>
+        <Title_14>uiStartUpStep</Title_14>
+        <Symbol_14>0 2 0</Symbol_14>
+        <Title_15>guiLWM2M_Status</Title_15>
+        <Symbol_15>0 4 1</Symbol_15>
+        <Title_16>uiStartUpStep</Title_16>
+        <Symbol_16>0 2 0</Symbol_16>
+        <Title_17>guiLWM2M_Status</Title_17>
+        <Symbol_17>0 4 1</Symbol_17>
+        <Title_18>uiStartUpStep</Title_18>
+        <Symbol_18>0 2 0</Symbol_18>
+        <Title_19>guiLWM2M_Status</Title_19>
+        <Symbol_19>0 4 1</Symbol_19>
+        <expr0>guiLWM2M_Status</expr0>
+        <setup0>1 10 1</setup0>
+        <expr1>uiStartUpStep</expr1>
+        <setup1>1 10 0</setup1>
+        <LogEnabled>1</LogEnabled>
+        <GraphEnabled>1</GraphEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+    </DataSample>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <Breakpoints>
+        <Count>0</Count>
+    </Breakpoints>
+    <FET>
+        <Clock_mode>46</Clock_mode>
+        <Extended_Clock_mode>1103</Extended_Clock_mode>
+        <Secure_Password />
+        <Extended_Clock_Control_Enable>1</Extended_Clock_Control_Enable>
+        <Advanced_Extended_Clock_Control>0</Advanced_Extended_Clock_Control>
+        <Emulation_mode>0</Emulation_mode>
+        <Free_running>0</Free_running>
+        <Shutting_Down>3</Shutting_Down>
+    </FET>
+    <Memory_Dump>
+        <Start_address />
+        <Lenghth />
+        <Address_info>0</Address_info>
+        <Format>0</Format>
+        <Dump_registers>0</Dump_registers>
+        <PC>0</PC>
+        <SP>0</SP>
+        <SR>0</SR>
+        <all_registers>0</all_registers>
+        <File_name />
+    </Memory_Dump>
+    <Aliases>
+        <A0>_ "C:\Users\messi\Documents\2016_03_08_Esima\314108 ESIMA @ BmbF\07 Layout &amp; Konstruktion\07 MSP Software\2016_02_17_EIS\USB_CDC_API\UsbCdc.c" "G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout &amp; Konstruktion\07 MSP Software\2016_03_11 EIS\USB_CDC_API\UsbCdc.c"</A0>
+        <A1>_ "C:\Users\messi\Documents\2016_03_08_Esima\314108 ESIMA @ BmbF\07 Layout &amp; Konstruktion\07 MSP Software\2016_02_17_EIS\USB_Common\usb.c" "G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout &amp; Konstruktion\07 MSP Software\2016_03_11 EIS\USB_Common\usb.c"</A1>
+        <Count>2</Count>
+        <SuppressDialog>1</SuppressDialog>
+    </Aliases>
+</settings>
