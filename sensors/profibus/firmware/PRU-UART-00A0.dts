@@ -1,0 +1,44 @@
+/*
+ *
+ * Virtual cape for PRU-UART on connector pins P9.24 P9.26
+ * UART1 pins P9.24 and P9.26 are multiplexed to PRUSS1_UART0 
+ * pins.
+ *  
+ */
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "ti,beaglebone", "ti,beaglebone-black";
+
+	// identification
+	part-number = "PRU-UART";
+	version = "00A0";
+
+	// resources this cape uses
+	exclusive-use =
+		"P9.24",		// uart1_txd
+		"P9.26",		// uart1_rxd
+		"uart1";		// hardware ip used
+
+	fragment@0 {
+		target = <&am33xx_pinmux>;
+		__overlay__ {
+			pru_uart_pins: pinmux_pru_uart_pins {
+				pinctrl-single,pins = <
+					0x180 0x35 /* (Pin_96, gpio0[14]) [P9.26] uart1_rxd.pr1_uart0_rxd, fast pulldown input mode 5 */
+					0x184 0x15 /* (Pin_97, gpio0[15]) [P9.24] uart1_txd.pr1_uart0_txd, fast pulldown output mode 5 */
+				>;
+			};
+		};
+	};
+
+	fragment@1 {
+		target = <&uart1>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-names = "default";
+			pinctrl-0 = <&pru_uart_pins>;
+		};
+	};
+};

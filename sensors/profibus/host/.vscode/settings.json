@@ -1,0 +1,41 @@
+{
+	"files.associations": {
+		"*.tcc": "cpp",
+		"fstream": "cpp"
+	},
+	"deploy": {
+		"packages": [
+			{
+				"name": "Profibus project",
+				"dir": "./ProfibusParser/*",
+				"button": {
+                    "text": "Deploy to 'Beaglebone Black'",
+                    "tooltip": "Click here to deploy to the target...",
+					"isRight":true,
+                    "targets": [ "Beaglebone Black" ]
+                }
+			}
+		],
+		"targets": [
+			{
+				"type": "sftp",
+				"name": "Beaglebone Black",
+				"description": "A remote deployment directory for the Beaglebone black",
+				"dir": "/home/debian/ProfibusParserHost",
+				"host": "192.168.7.2",
+				"port": 22,
+				"user": "debian",
+				"password": "temppwd"
+			}
+		],
+		"host": {
+			"dir": "./ProfibusParser",
+			"maxMessageSize": 134217727,
+			"port": 5979,
+			"showPopupOnSuccess": false
+		}
+	},
+	"code-runner.executorMap": {
+
+	}
+}
