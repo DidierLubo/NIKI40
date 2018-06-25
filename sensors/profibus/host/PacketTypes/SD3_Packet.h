@@ -40,7 +40,7 @@ class SD3_Packet : public iPacket
   public:
     SD3_Packet(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[], const char frameCheckSequence[]);
     PacketType getPacketType();
-    String getPacketAsString()
+    std::string getPacketAsString();
 };
 
 #endif //__SD3_PACKET_H_

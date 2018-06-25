@@ -36,3 +36,6 @@ SD3_Packet::SD3_Packet(const char destinationAddress[], const char sourceAddress
 PacketType SD3_Packet::getPacketType(){
     return SD3; 
 }
+std::string SD3_Packet::getPacketAsString(){
+    return nullptr;
+}

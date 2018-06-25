@@ -72,7 +72,8 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
                         strncpy(frameCheckSequence, inputBuffer + currentOffset, 2);
                         if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence)){
                             packet = new SD2_Packet(destinationAdress, sourceAdress, functionCode, payload);
-                            pthread_cond_signal(&inputQueueCondition);
+                            pthread_mutex_unlock(&senderMutex);
+                            pthread_cond_signal(&packetQueueCondition);
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 CC=arm-linux-gnueabihf-g++
 
-CPPFLAGS = -I./ -Wall -c -std=c++0x -g2 
+CPPFLAGS = -I./ -Wall -c -std=c++17 -g2 
 LDFLAGS = -lpthread
 SRC_DIR = PatternMachers PacketTypes Dissector
 BUILD_DIR = ./bin
@@ -30,6 +30,9 @@ $(BUILD_DIR)/Dissector.o: Dissector/Dissector.cpp
 
 $(BUILD_DIR)/main.o: main.cpp	
 	$(CC) $(CPPFLAGS) $< $(LDFLAGS) -o $(BUILD_DIR)/main.o	
+
+##PROFIBUS_parser.o:PROFIBUS_parser.cpp
+##	$(CC) $(CPPFLAGS) PROFIBUS_parser.cpp 
 
 checkdirs: $(BUILD_DIR)
 

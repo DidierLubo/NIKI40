@@ -28,10 +28,11 @@
 
 #include "iPacket.h"
 #include "Defines.h"
+#include <string>
 
 class SD2_Packet : public iPacket{
   private:
-    String packetString;
+    std::string packetString;
     char destinationAddress[BASE_FIELD_SIZE+1];
     char sourceAddress[BASE_FIELD_SIZE+1];
     char functionCode[BASE_FIELD_SIZE+1];
@@ -42,7 +43,7 @@ class SD2_Packet : public iPacket{
   public:
     SD2_Packet(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[]);
     PacketType getPacketType();
-    String getPacketAsString();
+    std::string getPacketAsString();
 };
 
 #endif //__SD2_PACKET_H_

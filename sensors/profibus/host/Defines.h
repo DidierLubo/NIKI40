@@ -40,9 +40,9 @@
 #define PATTERN_SIZE	   2
 #define MAX_INDEX_SIZE     (MAX_BUFFER_SIZE * PATTERN_SIZE) 
 
-pthread_mutex_t dissectorMutex; 
-pthread_mutex_t senderMutex;
-pthread_cond_t inputQueueCondition = PTHREAD_COND_INITIALIZER;
-pthread_cond_t packetQueueCondition = PTHREAD_COND_INITIALIZER;
+static pthread_mutex_t dissectorMutex; 
+static pthread_mutex_t senderMutex;
+static pthread_cond_t inputQueueCondition = PTHREAD_COND_INITIALIZER;
+static pthread_cond_t packetQueueCondition = PTHREAD_COND_INITIALIZER;
 
 #endif //__DEFINES_H__

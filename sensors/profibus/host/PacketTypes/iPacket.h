@@ -28,7 +28,7 @@
 #ifndef __I_PACKET_H__
 #define __I_PACKET_H__
 
-#include <String.h>
+#include <string>
 
 enum PacketType{
     SD1 = 1,
@@ -44,7 +44,7 @@ class iPacket{
     ~iPacket(){} 
 
     virtual PacketType getPacketType() = 0; 
-    virtual String getPacketAsString() = 0; 
+    virtual std::string getPacketAsString() = 0; 
 };
 
 #endif //__I_PACKET_H__

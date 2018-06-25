@@ -40,19 +40,19 @@ PacketType SD2_Packet::getPacketType()
     return SD2;
 }
 
-void packToString() {
+void SD2_Packet::packToString() {
     packetString = "Destination address: ";
-    packetString += destinationAddress; 
+    packetString += this->destinationAddress; 
     packetString += "\n Source address: "; 
-    packetString += sourceAddress; 
+    packetString += this->sourceAddress; 
     packetString += "\n function code: "; 
-    packetString += functionCode; 
+    packetString += this->functionCode; 
     packetString += "\n payload: "; 
-    packetString += payload;
+    packetString += this->payload;
     packetString += "\n";
 }
 
-String getPacketAsString() {
+std::string SD2_Packet::getPacketAsString() {
     packToString(); 
     return packetString;
 }

@@ -30,6 +30,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <queue>
+#include <string.h>
+#include <iostream>
 
 static std::queue<char *> inputQueue;
 static std::queue<iPacket *> packetQueue;
@@ -81,6 +83,7 @@ void *readStartRoutine(void *arg)
             char inputBuffer[MAX_BUFFER_SIZE];
             readerStatus = read(reader, inputBuffer, MAX_BUFFER_SIZE);
             inputQueue.push(inputBuffer);
+            pthread_mutex_unlock(&dissectorMutex);
             pthread_cond_signal(&inputQueueCondition);
         } while (readerStatus > 0);
     }
@@ -93,16 +96,17 @@ void *disectorStartRoutine(void *arg)
 
     while (1)
     {
-        char unprocessedData[MAX_BUFFER_SIZE] = inputQueue.front();
-        inputQueue.pop();
-
-        dissect(PacketType::SD2, unprocessedData, matcher);
-        dissect(PacketType::SD3, unprocessedData, matcher);
-
         pthread_mutex_lock(&dissectorMutex);
         while(inputQueue.empty()) 
             pthread_cond_wait(&inputQueueCondition,&dissectorMutex);
         pthread_mutex_unlock(&dissectorMutex);
+
+        char unprocessedData[MAX_BUFFER_SIZE];
+        strcpy(unprocessedData,inputQueue.front());
+        inputQueue.pop();
+
+        dissect(PacketType::SD2, unprocessedData, matcher);
+        dissect(PacketType::SD3, unprocessedData, matcher);
     }
     pthread_exit(NULL);
 }
@@ -111,15 +115,15 @@ void *printerRoutine(void *arg)
 {
     while (1)
     {
-        iPacket *packet = packetQueue.front();
-        packetQueue.pop();
-
-        printf("-----PACKET------ \n %s", packet->getPacketAsString());
-
         pthread_mutex_lock(&senderMutex);
         while(packetQueue.empty()) 
             pthread_cond_wait(&packetQueueCondition,&senderMutex);
         pthread_mutex_unlock(&senderMutex);
+
+        iPacket *packet = packetQueue.front();
+        packetQueue.pop();
+
+        std::cout << "---------- Packet received ----------" << std::endl << packet->getPacketAsString();
     }
     pthread_exit(NULL);
 }
@@ -137,7 +141,7 @@ int main()
 
     pthread_create(&readThread, NULL, &readStartRoutine, &deviceReader);
     pthread_create(&dissectorThread, NULL, &disectorStartRoutine, matcher);
-    pthread_create(&printThread, NULL, $printerRoutine, NULL);
+    pthread_create(&printThread, NULL, &printerRoutine, NULL);
 
     pthread_join(readThread, NULL);
     pthread_join(dissectorThread, NULL);
