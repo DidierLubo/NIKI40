@@ -72,7 +72,7 @@
         Institut für Technologie (www.fzi.de), Hahn-Schickard-Gesellschaft
         für angewandte Forschung e.V. (www.hahn-schickard.de) and
         Hochschule Offenburg (www.hs-offenburg.de).
-        This file was developed by FZI Forschungszentrum Informatik.
+        This file was developed by Hahn-Schickard.
         Licensed under the Apache License, Version 2.0 (the "License");
         you may not use this file except in compliance with the License.
         You may obtain a copy of the License at
