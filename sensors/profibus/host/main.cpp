@@ -36,7 +36,12 @@
 static std::queue<char *> inputQueue;
 static std::queue<iPacket *> packetQueue;
 
-void dissect(PacketType packetType, const char *inputBuffer, iPatternMatcher *matcher)
+pthread_mutex_t dissectorMutex = PTHREAD_MUTEX_INITIALIZER; 
+pthread_mutex_t senderMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t inputQueueCondition = PTHREAD_COND_INITIALIZER;
+pthread_cond_t packetQueueCondition = PTHREAD_COND_INITIALIZER;
+
+void dissect(const PacketType packetType, const char *inputBuffer, const iPatternMatcher *matcher, pthread_mutex_t *mutex, pthread_cond_t *condition)
 {
     int index[MAX_INDEX_SIZE];
     int indexSize = 0;
@@ -47,11 +52,11 @@ void dissect(PacketType packetType, const char *inputBuffer, iPatternMatcher *ma
         break;
     case SD2:
     {
+        std::remove_const <iPatternMatcher*>::type matcher;
         indexSize = matcher->search("68", inputBuffer, index);
-
         if (indexSize > 0)
         {
-            iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize);
+            iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize, mutex, condition);
 
             if (dataTelegram != nullptr)
                 packetQueue.push(dataTelegram);
@@ -73,7 +78,9 @@ void dissect(PacketType packetType, const char *inputBuffer, iPatternMatcher *ma
 
 void *readStartRoutine(void *arg)
 {
-    int reader = (intptr_t)arg;
+    int reader = *((int*)arg);
+
+    std::cout << "Read routine started!" << std::endl;
 
     if (reader >= 0)
     {
@@ -83,6 +90,8 @@ void *readStartRoutine(void *arg)
             char inputBuffer[MAX_BUFFER_SIZE];
             readerStatus = read(reader, inputBuffer, MAX_BUFFER_SIZE);
             inputQueue.push(inputBuffer);
+            std::cout << "pushed raw data to a queue!" << std::endl;
+
             pthread_mutex_unlock(&dissectorMutex);
             pthread_cond_signal(&inputQueueCondition);
         } while (readerStatus > 0);
@@ -94,10 +103,12 @@ void *disectorStartRoutine(void *arg)
 {
     iPatternMatcher *matcher = static_cast<iPatternMatcher *>(arg);
 
+    std::cout << "Disector routine started!" << std::endl;
+
     while (1)
     {
         pthread_mutex_lock(&dissectorMutex);
-        while(inputQueue.empty()) 
+        while(inputQueue.empty())
             pthread_cond_wait(&inputQueueCondition,&dissectorMutex);
         pthread_mutex_unlock(&dissectorMutex);
 
@@ -105,14 +116,16 @@ void *disectorStartRoutine(void *arg)
         strcpy(unprocessedData,inputQueue.front());
         inputQueue.pop();
 
-        dissect(PacketType::SD2, unprocessedData, matcher);
-        dissect(PacketType::SD3, unprocessedData, matcher);
+        dissect(PacketType::SD2, unprocessedData, matcher,&senderMutex,&packetQueueCondition);
+        dissect(PacketType::SD3, unprocessedData, matcher,&senderMutex,&packetQueueCondition);
     }
     pthread_exit(NULL);
 }
 
 void *printerRoutine(void *arg)
 {
+    std::cout << "Printer routine started!" << std::endl;
+
     while (1)
     {
         pthread_mutex_lock(&senderMutex);
@@ -131,21 +144,41 @@ void *printerRoutine(void *arg)
 int main()
 {
     pthread_t readThread, dissectorThread, printThread;
+    int readThreadReturnCode, dissectorThreadReturnCode, printThreadReturnCode;
+    void *threadJoinReturnCode;  
+
     int deviceReader = open(DEV_NAME, O_RDWR);
-    iPatternMatcher *matcher = new RabinKarpPatternMatcher();
 
     if (deviceReader >= 0)
     {
         write(deviceReader, "start", 6);
     }
 
-    pthread_create(&readThread, NULL, &readStartRoutine, &deviceReader);
-    pthread_create(&dissectorThread, NULL, &disectorStartRoutine, matcher);
-    pthread_create(&printThread, NULL, &printerRoutine, NULL);
+    printThreadReturnCode = pthread_create(&printThread, NULL, &printerRoutine, NULL);
+    if(printThreadReturnCode){
+        std::cout << "Failed creating printer thread #" << printThread << ".Thread exited with return code: " << printThreadReturnCode << std::endl;
+        return EXIT_FAILURE;
+    }
 
-    pthread_join(readThread, NULL);
-    pthread_join(dissectorThread, NULL);
-    pthread_join(printThread, NULL);
+    iPatternMatcher *matcher = new RabinKarpPatternMatcher();
+    dissectorThreadReturnCode = pthread_create(&dissectorThread, NULL, &disectorStartRoutine, matcher);
+    if(dissectorThreadReturnCode){
+        std::cout << "Failed creating dissector thread #" << dissectorThread << ".Thread exited with return code: " << dissectorThreadReturnCode << std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    readThreadReturnCode = pthread_create(&readThread, NULL, &readStartRoutine, &deviceReader);
+    if(readThreadReturnCode){
+        std::cout << "Failed creating read thread #" << readThread << ".Thread exited with return code: " << readThreadReturnCode << std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    if(!pthread_join(readThread, &threadJoinReturnCode)) 
+        std::cout << "Reader thread closing failed with error: " << threadJoinReturnCode << std::endl;
+    if(!pthread_join(dissectorThread, &threadJoinReturnCode))
+        std::cout << "Dissector thread closing failed with error: " << threadJoinReturnCode << std::endl;
+    if(!pthread_join(printThread, &threadJoinReturnCode))
+        std::cout << "Printer thread closing failed with error: " << threadJoinReturnCode << std::endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }

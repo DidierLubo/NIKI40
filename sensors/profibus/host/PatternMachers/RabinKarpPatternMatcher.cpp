@@ -28,27 +28,18 @@
 
 RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime, int alphabetSize, int dM)
 {
-    this->hashingPrime = hashingPrime;
-    this->alphabetSize = alphabetSize;
-    this->dM = dM;
+    _hashingPrime = hashingPrime;
+    _alphabetSize = alphabetSize;
+    _dM = dM;
 }
 
-RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime, int alphabetSize)
-{
-    RabinKarpPatternMatcher(hashingPrime, alphabetSize, 1);
-}
+RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime, int alphabetSize) : RabinKarpPatternMatcher(hashingPrime, alphabetSize, 1) {}
 
-RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime)
-{
-    RabinKarpPatternMatcher(hashingPrime, 256, 1);
-}
+RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime) : RabinKarpPatternMatcher(hashingPrime, 256, 1) {}
 
-RabinKarpPatternMatcher::RabinKarpPatternMatcher()
-{
-    RabinKarpPatternMatcher(7, 256, 1);
-}
+RabinKarpPatternMatcher::RabinKarpPatternMatcher() : RabinKarpPatternMatcher(7, 256, 1) {}
 
-int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], int indexBuffer[])
+int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], int indexBuffer[]) 
 {
     int needleLenght = strlen(needle);
     int haystackLenght = strlen(haystack);
@@ -58,15 +49,15 @@ int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], 
 
     int i,j;
 
-    // precompile dM
+    // precompile _dM
     for (i=0; i<needleLenght-1; i++){
-	dM = (dM*alphabetSize)%hashingPrime;
+	_dM = (_dM*_alphabetSize)%_hashingPrime;
     }   
 
     //Initial hash value calculation for the needle and the haystack
     for(i=0; i<needleLenght; i++){
-	needleHash = (alphabetSize*needleHash + needle[i])%hashingPrime; 
-	haystackHash = (alphabetSize*haystackHash + haystack[i])%hashingPrime;
+	needleHash = (_alphabetSize*needleHash + needle[i])%_hashingPrime; 
+	haystackHash = (_alphabetSize*haystackHash + haystack[i])%_hashingPrime;
     }
 
     //slide the needle window over the haystack
@@ -86,9 +77,9 @@ int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], 
 		
 		//calculate hash value for the remaining haystack
 		if(i<haystackLenght-needleLenght){
-			haystackHash = (alphabetSize*(haystackHash - haystack[i]*dM) + haystack[i+needleLenght])%hashingPrime;
+			haystackHash = (_alphabetSize*(haystackHash - haystack[i]*_dM) + haystack[i+needleLenght])%_hashingPrime;
 			if (haystackHash < 0) 
-				haystackHash = (haystackHash + hashingPrime);
+				haystackHash = (haystackHash + _hashingPrime);
 		}
     }
     return bufferSize;

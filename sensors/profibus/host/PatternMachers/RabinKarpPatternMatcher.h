@@ -30,9 +30,9 @@
 
 class RabinKarpPatternMatcher : public iPatternMatcher {
     private: 
-    int alphabetSize;
-    int hashingPrime;
-    int dM;
+    int _alphabetSize;
+    int _hashingPrime;
+    int _dM;
 
     public: 
     RabinKarpPatternMatcher(int hashingPrime, int alphabetSize, int dM);
@@ -41,6 +41,8 @@ class RabinKarpPatternMatcher : public iPatternMatcher {
     RabinKarpPatternMatcher(); 
 
     int search(const char needle[], const char haystack[], int indexBuffer[]);
+
+    int getSumOfFields(); 
 };
 
 #endif //__RABIN_KARP_PATTERN_MATCHER_H__

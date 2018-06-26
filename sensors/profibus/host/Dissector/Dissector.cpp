@@ -29,7 +29,7 @@
 #include <stdlib.h> 
 #include <string.h>
 
-SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, int indexSize)
+SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition)
 {
     SD2_Packet *packet = nullptr; 
 
@@ -72,8 +72,8 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
                         strncpy(frameCheckSequence, inputBuffer + currentOffset, 2);
                         if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence)){
                             packet = new SD2_Packet(destinationAdress, sourceAdress, functionCode, payload);
-                            pthread_mutex_unlock(&senderMutex);
-                            pthread_cond_signal(&packetQueueCondition);
+                            pthread_mutex_unlock(mutex);
+                            pthread_cond_signal(condition);
                         }
                     }
                 }
@@ -84,7 +84,7 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
     return packet;
 }
 
-SD3_Packet* Dissector::dissect_SD3(const char *inputBuffer, const int *index, int indexSize)
+SD3_Packet* Dissector::dissect_SD3(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition)
 {
     return nullptr;
 }
