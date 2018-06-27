@@ -39,7 +39,7 @@ RabinKarpPatternMatcher::RabinKarpPatternMatcher(int hashingPrime) : RabinKarpPa
 
 RabinKarpPatternMatcher::RabinKarpPatternMatcher() : RabinKarpPatternMatcher(7, 256, 1) {}
 
-int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], int indexBuffer[]) 
+int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], int indexBuffer[])
 {
     int needleLenght = strlen(needle);
     int haystackLenght = strlen(haystack);
@@ -47,40 +47,48 @@ int RabinKarpPatternMatcher::search(const char needle[], const char haystack[], 
     int haystackHash = 0;
     int bufferSize = 0;
 
-    int i,j;
+    int i, j;
 
     // precompile _dM
-    for (i=0; i<needleLenght-1; i++){
-	_dM = (_dM*_alphabetSize)%_hashingPrime;
-    }   
+    for (i = 0; i < needleLenght - 1; i++)
+    {
+        _dM = (_dM * _alphabetSize) % _hashingPrime;
+    }
 
     //Initial hash value calculation for the needle and the haystack
-    for(i=0; i<needleLenght; i++){
-	needleHash = (_alphabetSize*needleHash + needle[i])%_hashingPrime; 
-	haystackHash = (_alphabetSize*haystackHash + haystack[i])%_hashingPrime;
+    for (i = 0; i < needleLenght; i++)
+    {
+        needleHash = (_alphabetSize * needleHash + needle[i]) % _hashingPrime;
+        haystackHash = (_alphabetSize * haystackHash + haystack[i]) % _hashingPrime;
     }
 
     //slide the needle window over the haystack
-    for(i=0; i<=haystackLenght - needleLenght; i++){
-		if(needleHash == haystackHash) {
-			for(j=0; j<needleLenght; j++){
-				if (haystack[i+j] != needle[j]){
-					break;
-				}
-			}
-			if(j == needleLenght) {
-				*indexBuffer = i;
-				indexBuffer++;
-				bufferSize++;
-			}
-		}
-		
-		//calculate hash value for the remaining haystack
-		if(i<haystackLenght-needleLenght){
-			haystackHash = (_alphabetSize*(haystackHash - haystack[i]*_dM) + haystack[i+needleLenght])%_hashingPrime;
-			if (haystackHash < 0) 
-				haystackHash = (haystackHash + _hashingPrime);
-		}
+    for (i = 0; i <= haystackLenght - needleLenght; i++)
+    {
+        if (needleHash == haystackHash)
+        {
+            for (j = 0; j < needleLenght; j++)
+            {
+                if (haystack[i + j] != needle[j])
+                {
+                    break;
+                }
+            }
+            if (j == needleLenght)
+            {
+                *indexBuffer = i;
+                indexBuffer++;
+                bufferSize++;
+            }
+        }
+
+        //calculate hash value for the remaining haystack
+        if (i < haystackLenght - needleLenght)
+        {
+            haystackHash = (_alphabetSize * (haystackHash - haystack[i] * _dM) + haystack[i + needleLenght]) % _hashingPrime;
+            if (haystackHash < 0)
+                haystackHash = (haystackHash + _hashingPrime);
+        }
     }
     return bufferSize;
 }

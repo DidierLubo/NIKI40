@@ -26,22 +26,30 @@
 #include "PacketTypes/iPacket.h"
 #include "PatternMachers/RabinKarpPatternMatcher.h"
 #include "Dissector/Dissector.h"
+#include "LimitiedQueue.h"
 #include "Defines.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <queue>
 #include <string.h>
 #include <iostream>
+#include <pthread.h>
 
-static std::queue<char *> inputQueue;
+static LimitiedQueue<char *> inputQueue;
 static std::queue<iPacket *> packetQueue;
+static bool readThreadAsleep = false;
 
+pthread_mutex_t dequeueMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t printerMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t queueMutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t searcherMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t dissectorMutex = PTHREAD_MUTEX_INITIALIZER; 
 pthread_mutex_t senderMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t inputQueueCondition = PTHREAD_COND_INITIALIZER;
 pthread_cond_t packetQueueCondition = PTHREAD_COND_INITIALIZER;
+pthread_cond_t readThreadCondition = PTHREAD_COND_INITIALIZER;
 
-void dissect(const PacketType packetType, const char *inputBuffer, const iPatternMatcher *matcher, pthread_mutex_t *mutex, pthread_cond_t *condition)
+void dissect(const PacketType packetType, const char *inputBuffer, iPatternMatcher *matcher)
 {
     int index[MAX_INDEX_SIZE];
     int indexSize = 0;
@@ -52,14 +60,25 @@ void dissect(const PacketType packetType, const char *inputBuffer, const iPatter
         break;
     case SD2:
     {
-        std::remove_const <iPatternMatcher*>::type matcher;
+        std::cout << "dissect() called for SD2 packet : " << inputBuffer << std::endl << " pointer addres is: " << &inputBuffer << std::endl;
+        //TODO: set iPatrnMatcher as const arg
+        //std::remove_const <iPatternMatcher*>::type matcher;
+        pthread_mutex_lock(&searcherMutex);
         indexSize = matcher->search("68", inputBuffer, index);
+        pthread_mutex_unlock(&searcherMutex);
+        std::cout << "dissect() indexSize: " << indexSize << std::endl;
         if (indexSize > 0)
         {
-            iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize, mutex, condition);
+            iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize);
 
-            if (dataTelegram != nullptr)
+            std::cout << "dissect() packet dissected!" << std::endl;
+
+            if (dataTelegram != nullptr){
                 packetQueue.push(dataTelegram);
+                std::cout << "dissect() packet pushed!" << std::endl;
+                pthread_mutex_unlock(&senderMutex);
+                pthread_cond_signal(&packetQueueCondition);
+            }
         }
     }
     break;
@@ -88,12 +107,21 @@ void *readStartRoutine(void *arg)
         do
         {
             char inputBuffer[MAX_BUFFER_SIZE];
-            readerStatus = read(reader, inputBuffer, MAX_BUFFER_SIZE);
-            inputQueue.push(inputBuffer);
-            std::cout << "pushed raw data to a queue!" << std::endl;
 
-            pthread_mutex_unlock(&dissectorMutex);
-            pthread_cond_signal(&inputQueueCondition);
+            if(inputQueue.isLimit()){
+                readThreadAsleep=true;
+                pthread_mutex_lock(&queueMutex);
+                while(readThreadAsleep)
+                    pthread_cond_wait(&readThreadCondition,&queueMutex);
+                pthread_mutex_unlock(&queueMutex);
+            } else {
+                readerStatus = read(reader, inputBuffer, MAX_BUFFER_SIZE);
+                std::cout << "Rad data received: " << inputBuffer << std::endl << "pointer address is: " << &inputBuffer << std::endl;
+                inputQueue.push(inputBuffer);
+                pthread_mutex_unlock(&dissectorMutex);
+                pthread_cond_signal(&inputQueueCondition);
+            }
+                        
         } while (readerStatus > 0);
     }
     pthread_exit(NULL);
@@ -113,11 +141,23 @@ void *disectorStartRoutine(void *arg)
         pthread_mutex_unlock(&dissectorMutex);
 
         char unprocessedData[MAX_BUFFER_SIZE];
+        pthread_mutex_lock(&dequeueMutex);
         strcpy(unprocessedData,inputQueue.front());
         inputQueue.pop();
+        pthread_mutex_unlock(&dequeueMutex);
 
-        dissect(PacketType::SD2, unprocessedData, matcher,&senderMutex,&packetQueueCondition);
-        dissect(PacketType::SD3, unprocessedData, matcher,&senderMutex,&packetQueueCondition);
+        std::cout << "Dissector routine called!" << std::endl;
+
+        if(inputQueue.size() < inputQueue.getMaxQueueLimit()/2 ){
+            pthread_mutex_unlock(&queueMutex); 
+            pthread_cond_signal(&readThreadCondition);
+            readThreadAsleep=false;
+        }
+
+        std::cout << "Parsing: " << unprocessedData << std::endl << "with pointer address: " << &unprocessedData << std::endl;
+
+        dissect(PacketType::SD2, unprocessedData, matcher);
+        dissect(PacketType::SD3, unprocessedData, matcher);
     }
     pthread_exit(NULL);
 }
@@ -133,10 +173,12 @@ void *printerRoutine(void *arg)
             pthread_cond_wait(&packetQueueCondition,&senderMutex);
         pthread_mutex_unlock(&senderMutex);
 
+        pthread_mutex_lock(&printerMutex);
         iPacket *packet = packetQueue.front();
         packetQueue.pop();
 
         std::cout << "---------- Packet received ----------" << std::endl << packet->getPacketAsString();
+        pthread_mutex_unlock(&printerMutex);
     }
     pthread_exit(NULL);
 }
@@ -173,11 +215,11 @@ int main()
         return EXIT_FAILURE;
     }
     
-    if(!pthread_join(readThread, &threadJoinReturnCode)) 
+    if(pthread_join(readThread, &threadJoinReturnCode)) 
         std::cout << "Reader thread closing failed with error: " << threadJoinReturnCode << std::endl;
-    if(!pthread_join(dissectorThread, &threadJoinReturnCode))
+    if(pthread_join(dissectorThread, &threadJoinReturnCode))
         std::cout << "Dissector thread closing failed with error: " << threadJoinReturnCode << std::endl;
-    if(!pthread_join(printThread, &threadJoinReturnCode))
+    if(pthread_join(printThread, &threadJoinReturnCode))
         std::cout << "Printer thread closing failed with error: " << threadJoinReturnCode << std::endl;
 
     return EXIT_SUCCESS;

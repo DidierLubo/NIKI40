@@ -32,11 +32,12 @@
 class Dissector
 {
   public:
-    static SD2_Packet* dissect_SD2(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition);
-    static SD3_Packet* dissect_SD3(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition);
+    static SD2_Packet* dissect_SD2(const char inputBuffer[], const int index[], int indexSize);
+    static SD3_Packet* dissect_SD3(const char inputBuffer[], const int index[], int indexSize);
 
   private:
-    static bool isFCS_Correct(const char *destinationAddress, const char *sourceAddress, const char *functionCode, const char *payload, const char *frameCheckSequence);
+    static bool isFCS_Correct(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[], const char frameCheckSequence[], int payloadLenght);
+    static int sumPsdu(const char payload[], int payloadLenght);
 };
 
 #endif //__DISSECTOR_H__

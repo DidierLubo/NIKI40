@@ -41,7 +41,7 @@ PacketType SD2_Packet::getPacketType()
 }
 
 void SD2_Packet::packToString() {
-    packetString = "Destination address: ";
+    packetString = " Destination address: ";
     packetString += this->destinationAddress; 
     packetString += "\n Source address: "; 
     packetString += this->sourceAddress; 

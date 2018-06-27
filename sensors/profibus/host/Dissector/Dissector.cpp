@@ -29,7 +29,7 @@
 #include <stdlib.h> 
 #include <string.h>
 
-SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition)
+SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], int indexSize)
 {
     SD2_Packet *packet = nullptr; 
 
@@ -51,14 +51,14 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
             strncpy(packetLenghtChar, inputBuffer + currentOffset, 2);
             currentOffset+=BASE_FIELD_SIZE;
             strncpy(repeatedPacketLenghtChar, inputBuffer + currentOffset, 2);
-            currentOffset+=BASE_FIELD_SIZE;
+            currentOffset+=BASE_FIELD_SIZE*2;
 
             if (strcmp(packetLenghtChar, repeatedPacketLenghtChar))
             {
-                packetLenght = strtol(packetLenghtChar, NULL, 16);
-                if (index[i] + packetLenght + BASE_FIELD_SIZE * 4 + 1 <= MAX_BUFFER_SIZE - 1)
+                packetLenght = strtol(packetLenghtChar, NULL, 16) * 2;
+                if (index[i] + currentOffset + packetLenght <= MAX_BUFFER_SIZE - 1)
                 {
-                    strncpy(endDilliminator, inputBuffer + index[i] + BASE_FIELD_SIZE * 7 + packetLenght + 2, 2);
+                    strncpy(endDilliminator, inputBuffer + currentOffset + packetLenght + BASE_FIELD_SIZE, 2);
                     if (strcmp(endDilliminator, "16") == 0)
                     {
                         strncpy(destinationAdress, inputBuffer + currentOffset, 2);
@@ -69,11 +69,10 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
                         currentOffset+=BASE_FIELD_SIZE;
                         strncpy(payload, inputBuffer + currentOffset, packetLenght);
                         currentOffset+=packetLenght;
+                        payload[packetLenght+1]='\0';
                         strncpy(frameCheckSequence, inputBuffer + currentOffset, 2);
-                        if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence)){
+                        if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence,(packetLenght-BASE_FIELD_SIZE*3)/2)){
                             packet = new SD2_Packet(destinationAdress, sourceAdress, functionCode, payload);
-                            pthread_mutex_unlock(mutex);
-                            pthread_cond_signal(condition);
                         }
                     }
                 }
@@ -84,12 +83,25 @@ SD2_Packet* Dissector::dissect_SD2(const char *inputBuffer, const int *index, in
     return packet;
 }
 
-SD3_Packet* Dissector::dissect_SD3(const char *inputBuffer, const int *index, int indexSize, pthread_mutex_t *mutex, pthread_cond_t *condition)
+SD3_Packet* Dissector::dissect_SD3(const char inputBuffer[], const int index[], int indexSize)
 {
     return nullptr;
 }
 
-bool Dissector::isFCS_Correct(const char *destinationAddress, const char *sourceAddress, const char *functionCode, const char *payload, const char *frameCheckSequence)
-{
-    return ((strtol(destinationAddress,NULL,16) + strtol(sourceAddress,NULL,16) + strtol(functionCode,NULL,16) + strtol(payload,NULL,16) ) / 255) == strtol(frameCheckSequence,NULL,16) ? true : false;
+bool Dissector::isFCS_Correct(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[], const char frameCheckSequence[], int payloadLenght)
+{    
+    int fcs = (strtol(destinationAddress,NULL,16) + strtol(sourceAddress,NULL,16) + strtol(functionCode,NULL,16) + sumPsdu(payload,payloadLenght) ) & 0xFF;
+    return ( fcs == strtol(frameCheckSequence,NULL,16) ? true : false );
+}
+
+int Dissector::sumPsdu(const char payload[], int payloadLenght){
+    int psdu_sum = 0; 
+    char byteBuffer[2];
+
+    for(int i=0; i<payloadLenght; i++){
+        strncpy(byteBuffer,payload + (2*i),2);
+        psdu_sum += strtol(byteBuffer,NULL,16);
+    }  
+
+    return psdu_sum;
 }

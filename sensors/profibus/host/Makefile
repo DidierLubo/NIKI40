@@ -1,15 +1,15 @@
-CC=arm-linux-gnueabihf-g++
-##CC=g++
+##CC=arm-linux-gnueabihf-g++
+CC=g++
 
 CPPFLAGS = -I./ -Wall -c -std=c++17 -g2 -v
 LDFLAGS = -lpthread
 SRC_DIR = PatternMachers PacketTypes Dissector
 BUILD_DIR = ./bin
+INCLUDE_DIR = ./LimitiedQueue
 OBJS = $(BUILD_DIR)/RabinKarpPatternMatcher.o $(BUILD_DIR)/SD2_Packet.o $(BUILD_DIR)/SD3_Packet.o $(BUILD_DIR)/Dissector.o $(BUILD_DIR)/main.o
 
 vpath %.cpp $(SRC_DIR)
 vpath %.h $(SRC_DIR)
-
 .PHONY: all checkdirs clean
 
 all: checkdirs parser
