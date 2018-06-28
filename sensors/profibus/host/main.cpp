@@ -28,6 +28,7 @@
 #include "Dissector/Dissector.h"
 #include "LimitiedQueue.h"
 #include "Defines.h"
+#include "RawDataStruct.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <queue>
@@ -35,7 +36,7 @@
 #include <iostream>
 #include <pthread.h>
 
-static LimitiedQueue<char *> inputQueue;
+static LimitiedQueue<RawDataStruct> inputQueue;
 static std::queue<iPacket *> packetQueue;
 static bool readThreadAsleep = false;
 
@@ -66,7 +67,7 @@ void dissect(const PacketType packetType, const char *inputBuffer, iPatternMatch
         pthread_mutex_lock(&searcherMutex);
         indexSize = matcher->search("68", inputBuffer, index);
         pthread_mutex_unlock(&searcherMutex);
-        std::cout << "dissect() indexSize: " << indexSize << std::endl;
+        std::cout << "dissect() indexSize is: " << indexSize << std::endl;
         if (indexSize > 0)
         {
             iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize);
@@ -75,7 +76,7 @@ void dissect(const PacketType packetType, const char *inputBuffer, iPatternMatch
 
             if (dataTelegram != nullptr){
                 packetQueue.push(dataTelegram);
-                std::cout << "dissect() packet pushed!" << std::endl;
+                std::cout << "dissect() packet pushed to the queue!" << std::endl;
                 pthread_mutex_unlock(&senderMutex);
                 pthread_cond_signal(&packetQueueCondition);
             }
@@ -116,8 +117,9 @@ void *readStartRoutine(void *arg)
                 pthread_mutex_unlock(&queueMutex);
             } else {
                 readerStatus = read(reader, inputBuffer, MAX_BUFFER_SIZE);
-                std::cout << "Rad data received: " << inputBuffer << std::endl << "pointer address is: " << &inputBuffer << std::endl;
-                inputQueue.push(inputBuffer);
+                RawDataStruct rawData;
+                strcpy(rawData.rawDataArray,inputBuffer);
+                inputQueue.push(rawData);
                 pthread_mutex_unlock(&dissectorMutex);
                 pthread_cond_signal(&inputQueueCondition);
             }
@@ -142,19 +144,15 @@ void *disectorStartRoutine(void *arg)
 
         char unprocessedData[MAX_BUFFER_SIZE];
         pthread_mutex_lock(&dequeueMutex);
-        strcpy(unprocessedData,inputQueue.front());
+        strcpy(unprocessedData,inputQueue.front().rawDataArray);
         inputQueue.pop();
         pthread_mutex_unlock(&dequeueMutex);
-
-        std::cout << "Dissector routine called!" << std::endl;
 
         if(inputQueue.size() < inputQueue.getMaxQueueLimit()/2 ){
             pthread_mutex_unlock(&queueMutex); 
             pthread_cond_signal(&readThreadCondition);
             readThreadAsleep=false;
         }
-
-        std::cout << "Parsing: " << unprocessedData << std::endl << "with pointer address: " << &unprocessedData << std::endl;
 
         dissect(PacketType::SD2, unprocessedData, matcher);
         dissect(PacketType::SD3, unprocessedData, matcher);

@@ -1,7 +1,7 @@
 ##CC=arm-linux-gnueabihf-g++
 CC=g++
 
-CPPFLAGS = -I./ -Wall -c -std=c++17 -g2 -v
+CPPFLAGS = -I./ -Wall -c -std=c++11 -g2 -v
 LDFLAGS = -lpthread
 SRC_DIR = PatternMachers PacketTypes Dissector
 BUILD_DIR = ./bin

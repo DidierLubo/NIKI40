@@ -17,27 +17,20 @@
         limitations under the License.
 */
 /*****************************************************************************************
- * Defines.h
- *
+ * RawDataStruct.h
  * Contains the global project definitions.
  *
  *  Created on: 15.06.2018
  *      Author: Dovydas Girdvainis
  */
 
-#ifndef __DEFINES_H__
-#define __DEFINES_H__
+#ifndef __RAW_DATA_STRUCT_H__
+#define __RAW_DATA_STRUCT_H__
 
-//#define DEV_NAME               "/dev/rpmsg_pru31" 
-//#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/capturefzi.txt"
-#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/test.txt"
-#define NUMBER_OF_THREADS       3
-#define SD2_LENGHT_CHECK        6 
-#define MAX_SD2_PDU_SIZE        246
-#define MAX_SD3_PDU_SIZE        8     
-#define BASE_FIELD_SIZE         2
-#define MAX_BUFFER_SIZE         MAX_SD2_PDU_SIZE
-#define PATTERN_SIZE	        2
-#define MAX_INDEX_SIZE          (MAX_BUFFER_SIZE * PATTERN_SIZE) 
+#include "Defines.h"
 
-#endif //__DEFINES_H__
+struct RawDataStruct {
+    char rawDataArray[MAX_BUFFER_SIZE];
+};
+
+#endif //__RAW_DATA_STRUCT_H__

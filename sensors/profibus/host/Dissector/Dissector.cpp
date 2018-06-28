@@ -25,8 +25,6 @@
 
 #include "Dissector.h"
 #include "Defines.h"
-#include <stdio.h>
-#include <stdlib.h> 
 #include <string.h>
 
 SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], int indexSize)
@@ -37,25 +35,26 @@ SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], 
     {
         if (((index[i + 1] - index[i]) == SD2_LENGHT_CHECK) && (index[i] != indexSize - 1))
         {
-            char packetLenghtChar[BASE_FIELD_SIZE];
-            char repeatedPacketLenghtChar[BASE_FIELD_SIZE];
-            char endDilliminator[BASE_FIELD_SIZE];
-            char destinationAdress[BASE_FIELD_SIZE];
-            char sourceAdress[BASE_FIELD_SIZE];
-            char functionCode[BASE_FIELD_SIZE];
-            char payload[MAX_SD2_PDU_SIZE];
-            char frameCheckSequence[BASE_FIELD_SIZE];
-            int packetLenght;
-            int currentOffset = index[i] + BASE_FIELD_SIZE;
+            char packetLenghtChar[BASE_FIELD_SIZE+1] = {0};
+            char repeatedPacketLenghtChar[BASE_FIELD_SIZE+1] = {0};
+            char endDilliminator[BASE_FIELD_SIZE+1] = {0};
+            char destinationAdress[BASE_FIELD_SIZE+1] = {0};
+            char sourceAdress[BASE_FIELD_SIZE+1] = {0};
+            char functionCode[BASE_FIELD_SIZE+1] = {0};
+            char payload[MAX_SD2_PDU_SIZE+1] = {0};
+            char frameCheckSequence[BASE_FIELD_SIZE+1] = {0};
+            unsigned int packetLenght = 0;
+            unsigned int currentOffset = index[i] + BASE_FIELD_SIZE;
 
             strncpy(packetLenghtChar, inputBuffer + currentOffset, 2);
             currentOffset+=BASE_FIELD_SIZE;
             strncpy(repeatedPacketLenghtChar, inputBuffer + currentOffset, 2);
             currentOffset+=BASE_FIELD_SIZE*2;
 
-            if (strcmp(packetLenghtChar, repeatedPacketLenghtChar))
+            if (strcmp(packetLenghtChar, repeatedPacketLenghtChar)==0)
             {
-                packetLenght = strtol(packetLenghtChar, NULL, 16) * 2;
+                packetLenghtChar[BASE_FIELD_SIZE] = '\0';
+                packetLenght = strtoul(packetLenghtChar, NULL, 16) * 2;
                 if (index[i] + currentOffset + packetLenght <= MAX_BUFFER_SIZE - 1)
                 {
                     strncpy(endDilliminator, inputBuffer + currentOffset + packetLenght + BASE_FIELD_SIZE, 2);
@@ -67,8 +66,8 @@ SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], 
                         currentOffset+=BASE_FIELD_SIZE;
                         strncpy(functionCode, inputBuffer + currentOffset, 2);
                         currentOffset+=BASE_FIELD_SIZE;
-                        strncpy(payload, inputBuffer + currentOffset, packetLenght);
-                        currentOffset+=packetLenght;
+                        strncpy(payload, inputBuffer + currentOffset, (packetLenght-BASE_FIELD_SIZE*3));
+                        currentOffset+=packetLenght-BASE_FIELD_SIZE*3;
                         payload[packetLenght+1]='\0';
                         strncpy(frameCheckSequence, inputBuffer + currentOffset, 2);
                         if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence,(packetLenght-BASE_FIELD_SIZE*3)/2)){
@@ -96,7 +95,7 @@ bool Dissector::isFCS_Correct(const char destinationAddress[], const char source
 
 int Dissector::sumPsdu(const char payload[], int payloadLenght){
     int psdu_sum = 0; 
-    char byteBuffer[2];
+    char byteBuffer[3] = {0};
 
     for(int i=0; i<payloadLenght; i++){
         strncpy(byteBuffer,payload + (2*i),2);
