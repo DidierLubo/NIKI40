@@ -46,6 +46,7 @@ pthread_mutex_t queueMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t searcherMutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t dissectorMutex = PTHREAD_MUTEX_INITIALIZER; 
 pthread_mutex_t senderMutex = PTHREAD_MUTEX_INITIALIZER;
+
 pthread_cond_t inputQueueCondition = PTHREAD_COND_INITIALIZER;
 pthread_cond_t packetQueueCondition = PTHREAD_COND_INITIALIZER;
 pthread_cond_t readThreadCondition = PTHREAD_COND_INITIALIZER;
@@ -61,21 +62,19 @@ void dissect(const PacketType packetType, const char *inputBuffer, iPatternMatch
         break;
     case SD2:
     {
-        std::cout << "dissect() called for SD2 packet : " << inputBuffer << std::endl << " pointer addres is: " << &inputBuffer << std::endl;
         //TODO: set iPatrnMatcher as const arg
         //std::remove_const <iPatternMatcher*>::type matcher;
         pthread_mutex_lock(&searcherMutex);
         indexSize = matcher->search("68", inputBuffer, index);
         pthread_mutex_unlock(&searcherMutex);
         std::cout << "dissect() indexSize is: " << indexSize << std::endl;
-        if (indexSize > 0)
+        if (indexSize > 1)
         {
-            iPacket *dataTelegram = Dissector::dissect_SD2(inputBuffer, index, indexSize);
+            Dissector::dissect_SD2(inputBuffer, index, indexSize, packetQueue);
 
             std::cout << "dissect() packet dissected!" << std::endl;
 
-            if (dataTelegram != nullptr){
-                packetQueue.push(dataTelegram);
+            if (packetQueue.size() > 0){
                 std::cout << "dissect() packet pushed to the queue!" << std::endl;
                 pthread_mutex_unlock(&senderMutex);
                 pthread_cond_signal(&packetQueueCondition);

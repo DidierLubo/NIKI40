@@ -28,12 +28,14 @@
 
 #include "PacketTypes/SD2_Packet.h"
 #include "PacketTypes/SD3_Packet.h"
+#include "PacketTypes/iPacket.h"
+#include <queue>
 
 class Dissector
 {
   public:
-    static SD2_Packet* dissect_SD2(const char inputBuffer[], const int index[], int indexSize);
-    static SD3_Packet* dissect_SD3(const char inputBuffer[], const int index[], int indexSize);
+    static void dissect_SD2(const char inputBuffer[], const int index[], int indexSize, std::queue<iPacket*> &outputQueue);
+    static void dissect_SD3(const char inputBuffer[], const int index[], int indexSize, std::queue<iPacket*> &outputQueue);
 
   private:
     static bool isFCS_Correct(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[], const char frameCheckSequence[], int payloadLenght);

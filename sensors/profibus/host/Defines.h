@@ -29,8 +29,8 @@
 #define __DEFINES_H__
 
 //#define DEV_NAME               "/dev/rpmsg_pru31" 
-//#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/capturefzi.txt"
-#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/test.txt"
+#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/capturefzi.txt"
+//#define DEV_NAME                "/home/saukijan/Documents/niki4_0/NIKI40/sensors/profibus/ProfibusEmulator/test.txt"
 #define NUMBER_OF_THREADS       3
 #define SD2_LENGHT_CHECK        6 
 #define MAX_SD2_PDU_SIZE        246

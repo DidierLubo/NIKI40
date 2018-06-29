@@ -27,10 +27,8 @@
 #include "Defines.h"
 #include <string.h>
 
-SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], int indexSize)
+void Dissector::dissect_SD2(const char inputBuffer[], const int index[], int indexSize, std::queue<iPacket *> &outputQueue)
 {
-    SD2_Packet *packet = nullptr; 
-
     for (int i = 0; i < indexSize; i++)
     {
         if (((index[i + 1] - index[i]) == SD2_LENGHT_CHECK) && (index[i] != indexSize - 1))
@@ -71,20 +69,19 @@ SD2_Packet* Dissector::dissect_SD2(const char inputBuffer[], const int index[], 
                         payload[packetLenght+1]='\0';
                         strncpy(frameCheckSequence, inputBuffer + currentOffset, 2);
                         if (isFCS_Correct(destinationAdress, sourceAdress, functionCode, payload, frameCheckSequence,(packetLenght-BASE_FIELD_SIZE*3)/2)){
-                            packet = new SD2_Packet(destinationAdress, sourceAdress, functionCode, payload);
+                            iPacket *packet = new SD2_Packet(destinationAdress, sourceAdress, functionCode, payload);
+                            outputQueue.push(packet);
                         }
                     }
                 }
             }
         }
     }
-
-    return packet;
 }
 
-SD3_Packet* Dissector::dissect_SD3(const char inputBuffer[], const int index[], int indexSize)
+void Dissector::dissect_SD3(const char inputBuffer[], const int index[], int indexSize, std::queue<iPacket*> &outputQueue)
 {
-    return nullptr;
+
 }
 
 bool Dissector::isFCS_Correct(const char destinationAddress[], const char sourceAddress[], const char functionCode[], const char payload[], const char frameCheckSequence[], int payloadLenght)
