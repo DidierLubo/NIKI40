@@ -1,0 +1,122 @@
+[DebugChecksum]
+Checksum=1440037730
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[EEM State Storage]
+Buffer=BAAAAAAAAAAAAAAAAAAAAAAA
+[EEM Sequencer]
+Buffer=AAAAAAAAAAAAAAAAAAAAAAAADAAAAAAADAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAAAADAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+[EEM Cycle Counter 0]
+Counter0=GAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA
+[EEM Cycle Counter 1]
+Counter1=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[InterruptLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+SumSortOrder=0
+[DataLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+SumEnabled=0
+ShowTimeSum=1
+[Breakpoints2]
+Count=0
+[Interrupts]
+Enabled=1
+[MemoryMap]
+Enabled=0
+Base=0
+UseAuto=0
+TypeViolation=1
+UnspecRange=1
+ActionState=1
+[Trace1]
+Enabled=0
+ShowSource=1
+[Simulator]
+Freq=1000000
+[struct_types]
+Fmt0=LWM2M_CLIENT_DEV_t-clientStatus	4	0
+Fmt1=SER_API_BASE_FRAME_t-footer	4	0
+[array_types]
+Fmt0=uint8_t [32]	4	0
+Fmt1=uint8_t [50]	5	0
+Fmt2=unsigned char[32]	4	0
+Fmt3=unsigned char[512]	5	0
+[watch_formats]
+Fmt0={W}1:I_ADC_MAX	3	0
+Fmt1={W}1:dma_sz	4	0
+Fmt2={W}1:objID	4	0
+Fmt3={W}1:rxByteCnt	3	0
+Fmt4={W}1:ucbrs	4	0
+[DataSample]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp5=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp6=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp7=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp8=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Bp9=_ "STD_CODE" "" 0 0 0 0 "" 0 ""
+Count=10
+[FET]
+Clock mode=38
+Extended Clock mode=17415
+Secure Password=
+Extended Clock Control Enable=1
+Advanced Extended Clock Control=0
+Emulation mode=0
+Free running=0
+Shutting Down=1
+[Memory Dump]
+Start address=
+Lenghth=
+Address info=0
+Format=0
+Dump registers=0
+PC=0
+SP=0
+SR=0
+all registers=0
+File name=
+[Aliases]
+A0=_ "C:\Users\messi\Desktop\2016_06_16 Emeter _LWM2M\emeter-main.c" ""
+A1=_ "C:\Users\messi\Desktop\2016_06_16 Emeter _LWM2M\emeter-toolkit\emeter-toolkit.h" ""
+A2=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-dlt645.c" ""
+A3=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-main.c" ""
+A4=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-toolkit\dc_filter16.s43" ""
+A5=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-toolkit\dc_filter24.s43" ""
+A6=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-toolkit\mac48.s43" ""
+A7=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-toolkit\shift48.s43" ""
+A8=_ "E:\TI\Esima\2016_05_04 Emeter\emeter-toolkit\sqac48_16.s43" ""
+Count=9
+SuppressDialog=1

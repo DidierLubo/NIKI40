@@ -1,0 +1,20 @@
+[ProjectGroup]
+Version=1.0
+[Project1]
+ProjectPath=ESIMA_EIS.PrjPcb
+[Project2]
+ProjectPath=EIS_CO2.PrjPcb
+[Project3]
+ProjectPath=EIS_CO2_V1_1.PrjPcb
+[Project4]
+ProjectPath=EIS_Flow.PrjPcb
+[Project5]
+ProjectPath=..\..\..\..\..\34  Stroemungssensoren\313409 CO2-iFil@ZIM Küfner\07 Layout & Konstruktion\CO2iFil_Bernd\MetaSensClampOn_V4\MSCO_CPU.PrjPCB
+[Project6]
+ProjectPath=..\..\..\..\..\34  Stroemungssensoren\313409 CO2-iFil@ZIM Küfner\07 Layout & Konstruktion\CO2iFil_Bernd\MetaSensClampOn_V4\MSCO_Sensor.PrjPCB
+[Project7]
+ProjectPath=..\ESIMA_Receiver_NFC V2.0\WPC_NFC.PrjPcb
+[Project8]
+ProjectPath=..\..\..\..\114149_Intros @ FRAMED_Armbruster\07 Layout & Konstruktion\06 Elektronik\03_Schaltungen\HUS\114149 Intros @ FRAMED Armbruster HUS.PrjPcb
+[Project9]
+ProjectPath=..\..\..\..\114149_Intros @ FRAMED_Armbruster\07 Layout & Konstruktion\06 Elektronik\03_Schaltungen\HUS Inertialsensor\HUS-IMU-MPU-9250.PrjPcb

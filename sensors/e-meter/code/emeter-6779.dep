@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>3287367913</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-communication.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdlib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-background.r43</file>
+      <file>$PROJ_DIR$\Debug\List\I2C_USCI_Modul.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-dlt645.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Dogs102x6.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-background.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-setup.r43</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-setup.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timer_Modul.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\I2C_USCI_Modul.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_Transport_CRC.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\emeter-6779.d43</file>
+      <file>$PROJ_DIR$\RadioEsima.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_USCI.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\RF430.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_TransportLayer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-dlt645.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_App.__cstat.et</file>
+      <file>$PROJ_DIR$\UART_UCA3_Modul.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\RadioEsimaLWM2M.__cstat.et</file>
+      <file>$PROJ_DIR$\UART_USCI.c</file>
+      <file>$PROJ_DIR$\UART_USCI.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_TransportLayer.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\List\Timer_Modul.lst</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-6779.map</file>
+      <file>$PROJ_DIR$\Debug\List\LWM2M_Transport_CRC.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_Transport_CRC.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_TransportLayer.r43</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-main.lst</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-foreground.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-rtc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-rtc.__cstat.et</file>
+      <file>$PROJ_DIR$\LWM2M.c</file>
+      <file>$PROJ_DIR$\Timer_Modul.h</file>
+      <file>$PROJ_DIR$\LWM2M.h</file>
+      <file>$PROJ_DIR$\LWM2M_App.c</file>
+      <file>$PROJ_DIR$\LWM2M_App.h</file>
+      <file>$PROJ_DIR$\LWM2M_Transport_CRC.c</file>
+      <file>$PROJ_DIR$\LWM2M_Transport_CRC.h</file>
+      <file>$PROJ_DIR$\LWM2M_TransportLayer.c</file>
+      <file>$PROJ_DIR$\LWM2M_TransportLayer.h</file>
+      <file>$PROJ_DIR$\RadioEsimaLWM2M.c</file>
+      <file>$PROJ_DIR$\RadioEsimaLWM2M.h</file>
+      <file>$PROJ_DIR$\RF430.c</file>
+      <file>$PROJ_DIR$\RF430.h</file>
+      <file>$PROJ_DIR$\Timer_Modul.c</file>
+      <file>$PROJ_DIR$\emeter-multirate.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\Debug\Exe\emeter-toolkit-6779.r43</file>
+      <file>$PROJ_DIR$\emeter-rtc.c</file>
+      <file>$PROJ_DIR$\emeter-rtc.h</file>
+      <file>$PROJ_DIR$\emeter-setup.c</file>
+      <file>$PROJ_DIR$\emeter-structs.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.c</file>
+      <file>$PROJ_DIR$\I2C_USCI_Modul.h</file>
+      <file>$PROJ_DIR$\hal_pmm.c</file>
+      <file>$PROJ_DIR$\hal_pmm.h</file>
+      <file>$PROJ_DIR$\hal_UCS.c</file>
+      <file>$PROJ_DIR$\hal_UCS.h</file>
+      <file>$PROJ_DIR$\Hardware.h</file>
+      <file>$PROJ_DIR$\I2C_USCI_Modul.c</file>
+      <file>$PROJ_DIR$\Untitled1.c</file>
+      <file>$PROJ_DIR$\Debug\List\hal_UCS.lst</file>
+      <file>$PROJ_DIR$\Debug\List\UART_USCI.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ymath.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_App.pbi</file>
+      <file>$TOOLKIT_DIR$\config\linker\lnk430f6779.xcl</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-background.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Dogs102x6.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_UCS.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_pmm.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-communication.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-setup.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\I2C_USCI_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-fir-table.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-6779.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_UCS.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\LWM2M.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_USCI.r43</file>
+      <file>$TOOLKIT_DIR$\config\linker\multiplier32.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_UCA3_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-fir-table.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$PROJ_DIR$\Debug\List\UART_UCA3_Modul.lst</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\emeter-3ph-neutral-6779.h</file>
+      <file>$PROJ_DIR$\emeter-background.c</file>
+      <file>$PROJ_DIR$\emeter-foreground.c</file>
+      <file>$PROJ_DIR$\emeter-communication.c</file>
+      <file>$PROJ_DIR$\emeter-communication.h</file>
+      <file>$PROJ_DIR$\emeter-dlt645.c</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xlmfn.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdio.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\I2C_USCI_Modul.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-main.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-fir-table.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\isr_compat.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timer_Modul.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-setup.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-fir-table.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\RF430.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\math.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-foreground.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_UCS.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_Transport_CRC.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_UCA3_Modul.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\HAL_Dogs102x6.r43</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ystdio.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_UCA3_Modul.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_pmm.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\List\RF430.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\RadioEsimaLWM2M.r43</file>
+      <file>$PROJ_DIR$\emeter-toolkit\io.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f67791.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dl430xlmfn.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M.r43</file>
+      <file>$PROJ_DIR$\emeter-main.c</file>
+      <file>$PROJ_DIR$\emeter-fir-table.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\UART_USCI.pbi</file>
+      <file>$PROJ_DIR$\emeter-toolkit\emeter-toolkit.h</file>
+      <file>$PROJ_DIR$\Debug\List\HAL_Dogs102x6.lst</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-communication.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hal_pmm.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timer_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-main.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-rtc.lst</file>
+      <file>$PROJ_DIR$\emeter-toolkit\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-background.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\List\RadioEsimaLWM2M.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\LWM2M_App.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\RadioEsimaLWM2M.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-dlt645.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-rtc.r43</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-foreground.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\List\LWM2M_TransportLayer.lst</file>
+      <file>$PROJ_DIR$\Debug\List\emeter-dlt645.lst</file>
+      <file>$PROJ_DIR$\Debug\List\LWM2M_App.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-foreground.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xtgmath.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdbool.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f6779.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\emeter-6779.ulp</file>
+      <file>$PROJ_DIR$\Debug\Obj\RF430.r43</file>
+      <file>$PROJ_DIR$\Debug\List\hal_pmm.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\emeter-communication.__cstat.et</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\emeter-6779.d43</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 70 87 2 79 144 90 113 103 145 8 52 117 76 114 11 127 142 12 32 123 155 108 116 86 126</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\UART_UCA3_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 88</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 120</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 92 116</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91 93 73 94 6 139 125 75 130 13 41 1 63 132 107 26 77 78 45 106 100 104</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 26 63 139 132 91 125 93 78 107 94 41 45 6 73 13 75 100 104 106 130 77 1</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\UART_USCI.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 131</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 67 86</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125 107 132 78 63 26 139 94 91 93 152</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 152 26 63 139 132 91 125 93 78 107 94</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 89</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 127</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 39 77 13 139 75 130 6 106 100 104 152</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 6 73 13 75 100 104 106 130 77 139 39 152</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_App.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 149 142</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 139 1 106 38 94 91 93 119 43 6 26 125 13 104 73 41 56 101 152 45 63 132 107 118 100 39 78 54 98 77 75 130</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 39 152 139 41 26 63 132 91 125 93 78 107 94 45 119 56 54 98 38 43 101 73 13 75 100 104 106 130 77 118 1 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_Transport_CRC.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 115</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 30 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 13 100 139 73 77 106 104 6 43 75 130</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 6 73 13 75 100 104 106 130 77 139 43</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_TransportLayer.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 27</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 147 32</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45 73 104 13 139 63 107 93 1 41 77 106 100 132 78 43 39 26 75 130 94 91 125 6 152</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 6 73 13 75 100 104 106 130 77 139 1 43 45 26 63 132 91 125 93 78 107 94 39 152 41</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RadioEsimaLWM2M.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 24</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 143</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 141 123</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75 39 107 13 56 38 93 132 152 63 47 41 6 125 78 139 94 91 45 26 130 54 98 73 77 106 100 104</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 91 125 93 78 63 139 132 107 94 56 54 98 47 39 152 41 26 45 38 6 73 13 75 100 104 106 130 77</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RF430.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 111</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 122 155</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56 77 93 73 91 6 94 106 58 152 139 125 100 118 49 101 132 107 54 98 104 13 63 78 75 130</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94 49 56 54 98 58 6 73 13 75 100 104 106 130 77 101 118 152</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Timer_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 136</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28 108</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125 139 91 78 94 132 107 93 63</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-rtc.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 138 145</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 77 100 73 56 106 78 6 104 13 91 125 54 1 132 75 130 107 94 139 98</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 139 1 73 13 75 100 104 106 130 77 6 132 91 125 93 78 107 56 54 94 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-setup.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 109</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 80</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 9 8</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 13 77 6 132 107 73 75 139 124 94 91 125 78 130 63 106 100 104 153</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94 6 73 13 75 100 104 106 130 77 124 153 56 54 98 119 62 60</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 133 117</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 125 78 119 93 139 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 91 125 93 78 119 139</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal_pmm.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 121</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 135</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 156 76</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 125 60 91 78</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 91 125 93 78 60</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal_UCS.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 74</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 66 114</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 125 62 91 78</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 91 125 93 78 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\I2C_USCI_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 102</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 3 11</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 94 139 91 58 132 107 93 63 125 78</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-background.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 140</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 71 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91 13 130 124 106 75 93 1 132 73 77 100 104 153 78 139 125</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 139 1 73 13 75 100 104 106 130 77 124 153 93 78 132 91 125 107 56 54 94 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-foreground.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 146</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 150</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 34 113</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73 94 93 124 1 139 91 125 100 153 112 132 107 77 106 104 151 63 78 13 75 130 68</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94 1 73 13 75 100 104 106 130 77 112 68 151 124 153 56 54 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-communication.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 157</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 0</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 134 79</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 91 132 153 124 78 139 125</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 139 124 153 93 78 132 91 125 107 56 54 94 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-dlt645.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 21</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 148 144</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91 132 153 93 124 78 139 125</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 139 124 153 93 78 132 91 125 107 56 54 94 98 63 15</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-main.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 137</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 33 103</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 118 139 13 56 106 75 130 73 94 112 41 125 1 152 49 39 91 93 78 6 101 119 47 38 132 107 77 151 54 98 26 63 100 104 68 45</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 139 132 91 125 93 78 107 94 1 73 13 75 100 104 106 130 77 6 112 68 151 101 118 152 56 54 98 119 49 47 41 26 45 38 39</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-fir-table.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 110</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 105 90</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 91 132 153 124 78 139 125</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 139 124 153 93 78 132 91 125 107 56 54 94 98</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 29 14</file>
+        </tool>
+        <tool>
+          <name>ULP430</name>
+          <file> 154</file>
+        </tool>
+      </outputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\RadioEsima.h</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-foreground.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-dlt645.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-background.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_App.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-fir-table.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\UART_USCI.__cstat.et</file>
+      <file>$PROJ_DIR$\UART_UCA3_Modul.c</file>
+      <file>$PROJ_DIR$\UART_USCI.c</file>
+      <file>$PROJ_DIR$\UART_USCI.h</file>
+      <file>$PROJ_DIR$\LWM2M.c</file>
+      <file>$PROJ_DIR$\Timer_Modul.h</file>
+      <file>$PROJ_DIR$\LWM2M.h</file>
+      <file>$PROJ_DIR$\LWM2M_App.c</file>
+      <file>$PROJ_DIR$\LWM2M_App.h</file>
+      <file>$PROJ_DIR$\LWM2M_Transport_CRC.c</file>
+      <file>$PROJ_DIR$\LWM2M_Transport_CRC.h</file>
+      <file>$PROJ_DIR$\LWM2M_TransportLayer.c</file>
+      <file>$PROJ_DIR$\LWM2M_TransportLayer.h</file>
+      <file>$PROJ_DIR$\RadioEsimaLWM2M.c</file>
+      <file>$PROJ_DIR$\RadioEsimaLWM2M.h</file>
+      <file>$PROJ_DIR$\RF430.c</file>
+      <file>$PROJ_DIR$\RF430.h</file>
+      <file>$PROJ_DIR$\Timer_Modul.c</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_Transport_CRC.r43</file>
+      <file>$TOOLKIT_DIR$\inc\msp430x14x.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdio.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdlib.h</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M.r43</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdarg.h</file>
+      <file>$PROJ_DIR$\Release\Obj\I2C_USCI_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_App.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\Timer_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_UCS.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_TransportLayer.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\UART_UCA3_Modul.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdbool.h</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_Transport_CRC.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-communication.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\RF430.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_UCS.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\RadioEsimaLWM2M.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\I2C_USCI_Modul.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_pmm.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Release\Obj\Timer_Modul.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_Transport_CRC.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-main.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\HAL_Dogs102x6.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-setup.pbi</file>
+      <file>$PROJ_DIR$\emeter-rtc.c</file>
+      <file>$PROJ_DIR$\emeter-rtc.h</file>
+      <file>$PROJ_DIR$\emeter-setup.c</file>
+      <file>$PROJ_DIR$\emeter-structs.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.c</file>
+      <file>$PROJ_DIR$\I2C_USCI_Modul.h</file>
+      <file>$PROJ_DIR$\hal_pmm.c</file>
+      <file>$PROJ_DIR$\hal_pmm.h</file>
+      <file>$PROJ_DIR$\hal_UCS.c</file>
+      <file>$PROJ_DIR$\hal_UCS.h</file>
+      <file>$PROJ_DIR$\Hardware.h</file>
+      <file>$PROJ_DIR$\I2C_USCI_Modul.c</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-rtc.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-foreground.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-communication.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-fir-table.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-dlt645.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\UART_USCI.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-background.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M_TransportLayer.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\LWM2M.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\UART_UCA3_Modul.pbi</file>
+      <file>$PROJ_DIR$\Release\Exe\emeter-6779.txt</file>
+      <file>$PROJ_DIR$\Release\Obj\hal_pmm.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\RadioEsimaLWM2M.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\HAL_Dogs102x6.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f149.h</file>
+      <file>$PROJ_DIR$\Release\Obj\RF430.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-setup.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-main.__cstat.et</file>
+      <file>$PROJ_DIR$\Release\Obj\emeter-rtc.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+      <file>$TOOLKIT_DIR$\inc\in430.h</file>
+      <file>$PROJ_DIR$\emeter-3ph-neutral-6779.h</file>
+      <file>$PROJ_DIR$\emeter-background.c</file>
+      <file>$PROJ_DIR$\emeter-foreground.c</file>
+      <file>$PROJ_DIR$\emeter-communication.c</file>
+      <file>$PROJ_DIR$\emeter-communication.h</file>
+      <file>$PROJ_DIR$\emeter-dlt645.c</file>
+      <file>$PROJ_DIR$\emeter-toolkit\isr_compat.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\io.h</file>
+      <file>$TOOLKIT_DIR$\inc\msp430f67791.h</file>
+      <file>$PROJ_DIR$\emeter-main.c</file>
+      <file>$PROJ_DIR$\emeter-fir-table.c</file>
+      <file>$PROJ_DIR$\emeter-toolkit\emeter-toolkit.h</file>
+      <file>$PROJ_DIR$\emeter-toolkit\stdint.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\UART_UCA3_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 35</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100 86 63 84 9 38 87 93 79 14 27 99 85 18 46</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 9 63 100 99 85 79 86 84 93 87 14 18 38 46 27</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\UART_USCI.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 6</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 70</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 87 63 100 93 86 9 99 85 79 37 84</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 37 9 63 100 99 85 79 86 84 93 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 36</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 12 100 38 37</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 38 46 100 12 37</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_App.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9 54 37 86 11 94 16 100 99 85 84 87 14 56 96 27 38 18 63 93 79 91 46 12</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 12 37 100 14 9 63 99 85 79 86 84 93 87 18 94 56 54 91 11 96 16 27 46 38</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_Transport_CRC.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100 46 38 16</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 38 46 100 16</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LWM2M_TransportLayer.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 34</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 86 18 87 93 27 9 63 100 16 12 99 85 79 38 84 37</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 38 46 100 27 16 18 9 63 99 85 79 86 84 93 87 12 37</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RadioEsimaLWM2M.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 77</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12 86 99 100 63 56 11 79 85 91 9 20 14 38 84 18 87 93 54 37 46</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 79 86 84 63 100 99 93 87 56 54 91 20 12 37 14 9 18 11 38 46</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\RF430.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 80</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 46 38 58 37 99 85 54 22 100 26 87 93 86 84 56 29 63 79 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87 22 56 54 91 58 38 46 26 29 37</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Timer_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 47</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86 100 93 87 79 99 85 84 63</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-rtc.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 83</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 85 56 46 86 87 38 79 27 99 54 93 100 84 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 100 27 46 38 99 85 79 86 84 93 56 54 87 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-setup.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 52</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100 86 99 38 94 87 93 79 95 56 85 84 46 25 91 63 54</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87 38 46 95 25 56 54 91 94</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 78</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86 79 94 100 85 84</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 79 86 84 94 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal_pmm.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 76</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84 86 79 85 60</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 79 86 84 60</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\hal_UCS.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86 79 62 85 84</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 85 79 86 84 62</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\I2C_USCI_Modul.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 87 79 84 100 93 86 58 99 85 63</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87 58</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-background.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56 86 87 95 46 27 99 25 93 54 100 84 85 79 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 100 27 46 95 25 86 84 99 85 79 93 56 54 87 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-foreground.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 95 87 25 27 100 93 86 91 48 99 56 85 79 46 63 84 54</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87 27 46 48 95 25 56 54 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-communication.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 67</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 93 87 99 86 95 56 84 85 54 100 79 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 100 95 25 86 84 99 85 79 93 56 54 87 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-dlt645.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 2</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 69</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93 99 63 86 79 87 95 56 0 25 91 100 84 85 54</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 100 95 25 86 84 99 85 79 93 56 54 87 91 63 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-main.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100 54 86 56 46 48 14 9 27 37 22 29 63 38 26 94 20 11 87 93 79 18 99 85 84 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 63 100 99 85 79 86 84 93 87 27 46 38 48 26 29 37 56 54 91 94 22 20 14 9 18 11</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\emeter-fir-table.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84 87 99 86 85 95 56 25 93 54 100 79 91</file>
+        </tool>
+        <tool>
+          <name>ICC430</name>
+          <file> 100 95 25 86 84 99 85 79 93 56 54 87 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\UART_UCA3_Modul.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\UART_USCI.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\LWM2M_App.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\LWM2M_TransportLayer.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\RadioEsimaLWM2M.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\RF430.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Timer_Modul.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-rtc.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-setup.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-toolkit\HAL_Dogs102x6.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\hal_pmm.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\hal_UCS.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\I2C_USCI_Modul.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-background.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-foreground.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-communication.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-dlt645.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-main.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\emeter-fir-table.c</name>
+      <tool>ICC430</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

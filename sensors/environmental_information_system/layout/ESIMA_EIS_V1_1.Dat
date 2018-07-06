@@ -1,0 +1,69 @@
+﻿Field=#~Integer~#~50|Field=Quantity~Integer~Quantity~100|Field=Designator~String~Designator~100|Field=Comment~String~Comment~100|Field=Value~String~Value~100|Field=07_Lieferant~String~07_Lieferant~100|Field=08_Lieferanten_Nummer~String~08_Lieferanten_Nummer~100|Field=Description~String~Description~100|Field=Footprint~String~Footprint~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~ESIMA_EIS_V1_1.PrjPcb|ReportField=ProjectFullPath~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\ESIMA_EIS_V1_1.PrjPcb|ReportField=Title~Bill of Materials For Project [ESIMA_EIS_V1_1.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~140|ReportField=ReportTime~14:46:56|ReportField=ReportDate~16.03.2016|ReportField=ReportDateTime~16.03.2016 14:46:56|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~Wilhelm-Schickard-Str. 10|ReportField=Address2~78052 Villingen-Schwenningen|ReportField=Address3~Bernd.Ehrbrecht@Hahn-Schickard.de|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~14.03.2016|ReportField=CurrentTime~11:10:31|ReportField=Date~|ReportField=DocumentFullPathAndName~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\EIS_Main.SchDoc|ReportField=DocumentName~EIS_Main.SchDoc|ReportField=DocumentNumber~1|ReportField=DrawnBy~|ReportField=E-Mail~Xxxx.Xxxx@Hahn-Schickard.de|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~14.03.2016|ReportField=Organization~Hahn-Schickard|ReportField=PhoneNumber~0 7721 943 137|ReportField=ProjectName~ESIMA_EIS_V1_1.PrjPcb|ReportField=Revision~1.0|ReportField=Rule~|ReportField=SheetNumber~1|ReportField=SheetTotal~7|ReportField=Subtitle~|ReportField=Time~|ReportField=Title~EIS: Main|ReportField=ConfigurationParameters~|ReportField=ConfiguratorName~|ReportField=FaxNumber~+49 7721 943 210|ReportField=IsUserConfigurable~|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=0.97:XCorrection=1.00:YCorrection=1.00:PrintKind=0:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=7:PrintQuality=-3:MediaType=1:DitherType=10:PrintScaleMode=1:PaperKind=A4:PaperIndex=9|ReportField=VersionControl_RevNumber~|ReportField=DataSourceFileName~ESIMA_EIS_V1_1.PrjPcb|ReportField=DataSourceFullPath~G:\06  Projekte\41  ES\314108 ESIMA @ BmbF\07 Layout & Konstruktion\01 Schaltpläne\ESIMA_EIS\ESIMA_EIS_V1_1.PrjPcb
+1|4|C100, C201, C202, C207|10nF||Digi-Key|399-1091-1-ND||CAPC1608N
+2|1|C101|1nF||Digi-Key|399-1082-1-ND||CAPC1608N
+3|18|C102, C104, C106, C116, C117, C118, C121, C200, C205, C206, C300, C301, C306, C307, C308, C500, C503, C507|100nF||Digi-Key|399-1096-1-ND|[NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], [NoValue], Ceramic Chip Capacitor - Standard, Ceramic Chip Capacitor - Standard, [NoValue]|CAPC1608N
+4|5|C103, C119, C120, C203, C204|10uF||Digi-Key|490-7201-1-ND||CAPC1608N
+5|4|C105, C107, C108, C111|n.c.|||||CAPC1608N
+6|4|C109, C113, C114, C208|220nF||Digi-Key|445-1318-1-ND||CAPC1608N
+7|2|C110, C303|470nF||Digi-Key|445-5152-1-ND|[NoValue], Ceramic Chip Capacitor - Standard|CAPC1608N
+8|1|C112|4.7nF||Digi-Key|1276-1098-1-ND||CAPC1608N
+9|3|C115, C209, C212|4.7uF||Digi-Key|1276-2087-1-ND||CAPC1608N
+10|1|C210|2.2uF||Digi-Key|587-3386-1-ND||CAPC1608N
+11|1|C211|47pF||Digi-Key|1276-1037-1-ND||CAPC1608N
+12|1|C213|1uF||Digi-Key|1276-1946-1-ND||CAPC1608N
+13|4|C302, C304, C305, C504|10uF / 16V|10uF / 16V|Digi-Key|490-6473-1-ND|Ceramic Chip Capacitor - Standard|CAPC2012N
+14|1|C501|4.7uF|4.7uF|Digi-Key|490-6475-1-ND|Ceramic Chip Capacitor - Standard|CAPC2012N
+15|1|C502|4.7uF / 25V|4u7|Digi-Key|478-2408-6-ND|Polarized Capacitor (Surface Mount)|C1210
+16|2|C505, C506|10pF||Digi-Key|399-1049-1-ND||CAPC1608N
+17|1|D100|ge||Farnell|1226427||LED-Gelb
+18|1|D101|gn||Farnell|1226397||LED-gruen
+19|1|IC200|TPS76930||Farnell|1703394|Low Output, Adjustable, Ultralow-Power, 100-mA Low Dropout Linear Regulator|TI-DBV5 (SOT23-5)
+20|1|IC300|BQ27210||Digi-Key|296-21511-1-ND|i-Ion AND Li-Pol BATTERY GAS GAUGE IC FOR PORTABLE APPLICATIONS|TI-DRK-PVSON
+21|1|IC400|CC2530EM (Samtec Stecker)||Samtec|TFM-110-02-S-D-A|CC2530EM Referenzdesign, Samtec TFM-110-02-S-D-A|CC2400EM_Board
+22|1|IC500|TVS 5||Farnell|1825875||SOT23-6
+23|1|J300|PWR2.5||Digi-Key|732-5923-ND|Low Voltage Power Supply Connector|WE_694102304002
+24|1|L200|Inductor|33uH|Digi-Key|587-2501-1-ND|Inductor|RESC2012N
+25|1|L201|15uH|15uH|Digi-Key|490-4060-6-ND|Inductor|INDC3225N
+26|1|LOGO1|Hahn-Schickard-Logo||||Hahn-Schickard Logo als Footprint|Hahn-Schickard-LOGO_klein
+27|1|NOFP300|No-Footprint|Akku|Farnell|2401853|Dummy-Bauteil, um Zusatzbestellungen in die BOM einzutragen|No_Footprint
+28|1|P300|Akku-Stecker||Farnell|1516290|Header, 3-Pin|S3B-XH-A
+29|2|P500, P501|FTSH-109-04-F-MT||Samtec|FTSH-109-04-F-MT|Header, 9-Pin, Dual row, FTSH-109-04-F-MT|FTSH-109-01-X-MT-spezial
+30|1|Q100|19.2MHz||Farnell|1657888||Quarz 4 Pin 2.5mm*2mm
+31|1|Q101|32768Hz||Farnell|2101347|Uhren Quarz - Crystal|ABS07
+32|1|R100|47k||Digi-Key|311-47KGRCT-ND||RESC1608N
+33|6|R101, R200, R201, R300, R301, R302|10k|[NoValue], 0, 0, 10k, 10k, 10k|Digi-Key|311-10KGRCT-ND|[NoValue], [NoValue], [NoValue], Resistor, Resistor, Resistor|RESC1608N
+34|2|R102, R307|1.5k|1.5k|Digi-Key|RG16P1.5KBTR-ND|Resistor|RESC1608N
+35|2|R103, R105|330||Digi-Key|311-330GRCT-ND||RESC1608N
+36|1|R104|1M||Digi-Key|311-1.00MHRCT-ND||RESC1608N
+37|8|R106, R400, R401, R402, R403, R404, R405, R406|0||Farnell|2059527|RESC1608 (R0603)|RESC1608N
+38|10|R107, R108, R203, R206, R305, R306, R310, R311, R312, R316|100k|100k|Digi-Key|311-100KGRCT-ND|Resistor, Resistor, [NoValue], [NoValue], Resistor, Resistor, Resistor, Resistor, Resistor, Resistor|RESC1608N
+39|1|R202|n.c.|n.c.||||RESC1608N
+40|2|R204, R205|47|47|Digi-Key|311-47GRCT-ND||RESC1608N
+41|1|R207|1.69meg||Digi-Key|1276-4940-1-ND||RESC1608N
+42|1|R208|470k||Digi-Key|311-470KGRCT-ND||RESC1608N
+43|1|R209|120k|120k|Digi-Key|311-120KGRCT-ND||RESC1608N
+44|4|R303, R313, R314, R315|1k|1k|Farnell|2309108|Resistor|RESC1608N
+45|2|R304, R503|33k|33k, [NoValue]|Digi-Key|311-33KGRCT-ND|Resistor, [NoValue]|RESC1608N
+46|1|R308|n.b.|n.b.|||Variable Resistor|RESC1608N
+47|1|R309|36k|36k|Digi-Key|311-36KGRCT-ND|Resistor|RESC1608N
+48|1|R500|910k|910k|Digi-Key|311-910KHRCT-ND||RESC1608N
+49|2|R501, R502|27||Digi-Key|311-27GRCT-ND||RESC1608N
+50|1|Rs300|20m|20m|Farnell|1462292|RESC1005N (R0402)|RESC3216N
+51|1|S300|EAO-09-10290-01||Farnell|674357|Schalter universal 1Polig|EAO09-10290-01
+52|1|S301|SMD-PAD||||SMD-PAD für Debugvorgang|SMD_PAD
+53|1|S500|MICRO USB AB||Farnell|1568023|Micro USB AB, MOLEX-47589-0001, BOTTOM MOUNT|MICRO USB AB REC
+54|2|ST600, ST601|Molex 533981271||Digi-Key|WM7616CT-ND|Molex Pico 12Pol Blade SMD gerade 533980871|Molex 533981271
+55|1|ST602|Molex 532610971||Farnell|1125362|Stecker 9Pol universal|Molex 532610971
+56|1|ST603|Molex 533980571||Farnell|1125354|MOLEX - 53398-0571 - STIFTLEISTE, SMT, 1.25MM, 5POL|Molex 533980571
+57|1|ST604|Molex 533980771||Farnell|9786368|Molex Pico 7Pol Blade SMD gerade 533980771|Molex 533980771
+58|1|T200|LTC3459ES6||Digi-Key|LTC3459ES6#TRMPBFCT-ND||TSOT23 - 6
+59|1|U100|MSP430F6658IPZR||Mouser|595-MSP430F6658IPZ|20 MHz Mixed Signal Microcontroller with 256 KB Flash, 16384 B SRAM and 74 GPIOs, -40 to 85 degC, 100-pin QFP (PZ), Green (RoHS & no Sb/Br)|TI-PZ100_N
+60|1|U101|SN74AHC1G86DCKR||Farnell|1287455|2-Input XOR Gate|419A-01_N
+61|1|U102|DAC 124S085CIMM||Digi-Key|DAC124S085CIMM/NOPBCT-ND|DAC 4 Channel 12-Bit|MSOP-DGS
+62|1|U200|OPA2333AIDRBT||Digi-Key|296-19544-1-ND|Dual micro Power OP|TI DRB (S-PVON-N8)
+63|1|U201|LT3494||Farnell|1715221|Bost-Konverter|DFN-DDB-8
+64|1|U302|BQ24070||Farnell|1494884|Lithum Ion Ladebaustein, Power Path|R-PVQFN50P450X350X100-20N
+65|1|U500|Con MCOT128064BY-BM||Farnell|2396220|Connector für OLED, 128x64Pixel; 35x17mm / blau|Molex-52435-2471
+66|1|U501|MCOT128064BY-BM||Farnell|2342679|OLED; blau; 128x64 Pixel;|
+67|5|X1, X2, X3, X4, X5|Hole||||Durchkontaktierung d=4mm|Hole_2mm
+68|1|X100|8*1.27|||||JMP 8x1.27

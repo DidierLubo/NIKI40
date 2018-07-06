@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="LVDT_Auswertung.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="lvdt_config_file" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">.\\LVDT.cf22</Value>
+    </Setting>
+    <Setting Name="dds_frequency" Type="System.UInt32" Scope="Application">
+      <Value Profile="(Default)">1000000</Value>
+    </Setting>
+    <Setting Name="hs_clock" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="dds_enable" Type="System.UInt32" Scope="Application">
+      <Value Profile="(Default)">2069</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

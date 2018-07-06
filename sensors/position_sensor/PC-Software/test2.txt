@@ -1,0 +1,21 @@
+% Messparameter LVDT-Messung
+%
+% Version PC-Software: 1.0.4.27531
+% Firmware MCU: GP22_V1.0.0
+% GP22-Konfigurationsregister:
+% Register 00: F3C5E801
+% Register 01: 21420000
+% Register 02: 20000000
+% Register 03: 18000000
+% Register 04: 10000000
+% Register 05: 40000000
+% Register 06: 00006000
+% DDS-Frequenz [Hz]: 1000000
+% TDC-Clock [Hz]: 4000000
+% Offset: 0
+% Messdatum: 12.10.2017 15:18:24
+%
+% Zeit LVDT Status
+0.0000 0.000000 0x0000
+10.0930 0.000000 0x0000
+20.1550 0.000000 0x0000

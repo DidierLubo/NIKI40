@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Local debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bin/parser",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        // NATIVE DEBUGGER speccific configuration for remote debugging
+        {
+            "type": "gdb",
+            "request": "attach",
+            "name": "Remote GDB",
+            "executable": "${workspaceFolder}/bin/parser",
+            "target": "192.168.7.2:9091",
+            "remote": true,
+            "cwd": "${workspaceRoot}", 
+            "gdbpath": "/usr/bin/gdb-multiarch"
+        },
+
+    ]
+}
